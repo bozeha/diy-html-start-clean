@@ -1,0 +1,101 @@
+@font-face {
+    font-family: openlight;
+    src: url('style/openlight.ttf');
+}
+
+@font-face {
+    font-family: open;
+    src: url('style/open.ttf');
+}
+
+@font-face {
+    font-family: museo;
+    src: url('style/museo.otf');
+}
+
+
+
+body {
+    font-family: museo;
+}
+
+
+.add_another_step {
+    padding-bottom: 20px;
+}
+
+.add_guide_videos_array, .add_another_textarea, .add_another_step {
+    border: 1px solid blue;
+    padding: 30px;
+    border-radius: 5px;
+}
+#navbar a
+{
+    text-align:right;
+}
+.selected-guide p
+{
+    margin-bottom:0px;
+}
+
+/*.card .content
+{
+
+    padding-bottom:200px !important;
+}*/
+p
+{
+    direction:rtl;
+}
+
+div.an-add
+{
+    /*width:300px;*/
+    margin:0 auto;
+    float:none;
+}
+#adds
+{
+    height:1000px;
+    background-color:gray;
+}
+.add-new-step-between
+{
+    display:inline-block;
+    width:100%;
+}
+
+.add-new-step-between button
+{
+    background-color: transparent;
+    border: none;
+    color: limegreen;
+}
+.add-new-step-between button:hover
+{
+    font-weight:bold;
+    color:blue;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        background-color: Yellow;
+        opacity:1;
+    }
+    22% {
+        background-color: Yellow;
+    }
+    77% {
+        background-color: Red;
+    }
+    100% {
+        background-color: #777;
+    }
+}
+
+.flash {
+    -webkit-animation-name: demo;
+    -webkit-animation-duration: 900ms;
+    -webkit-animation-iteration-count: 5;
+    -webkit-animation-timing-function: ease-in-out;
+} 
