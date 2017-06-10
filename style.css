@@ -99,3 +99,46 @@ div.an-add
     -webkit-animation-iteration-count: 5;
     -webkit-animation-timing-function: ease-in-out;
 } 
+
+#pop_up_ad
+{
+  position: fixed;
+    top: 0px;
+    width: 300px;
+    height: 600px;
+    background-color: gray;
+    z-index: 1031;
+    display: none;
+    margin: 0 auto;
+    left: 50%;
+    margin-left: -150px;
+}
+#close_pop
+{
+    background-image: url(images/web/x.png);
+    right: 0px;
+    background-color: white;
+    color: black;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    float:right;
+}
+#pop_cont
+{
+    height:100%;
+}
+@media only screen and (min-device-width : 768px)
+{
+    #close_pop
+    {
+        width: 30px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        float:right;
+        
+    }
+
+}

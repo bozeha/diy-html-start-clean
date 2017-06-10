@@ -3,7 +3,7 @@
 <head>
 <?php include_once("ads/analyticstracking.php") ?>
   <?php include 'settings/head.php'; ?>
-
+  <script src="scripts/pop-up-ad.js"></script>
 </head>
 <body>
     <?php include 'content/top_main.php'; ?>
