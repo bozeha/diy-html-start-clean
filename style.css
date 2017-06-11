@@ -124,6 +124,7 @@ div.an-add
     background-repeat: no-repeat;
     background-size: 20px;
     float:right;
+    cursor: pointer;
 }
 #pop_cont
 {
