@@ -106,7 +106,7 @@ div.an-add
     top: 0px;
     width: 300px;
     height: 600px;
-    background-color: gray;
+   /* background-color: gray;*/
     z-index: 1031;
     display: none;
     margin: 0 auto;
@@ -115,6 +115,7 @@ div.an-add
 }
 #close_pop
 {
+    display:none;
     background-image: url(images/web/x.png);
     right: 0px;
     background-color: white;
@@ -134,6 +135,7 @@ div.an-add
 {
     #close_pop
     {
+        display:none;
         width: 30px;
         height: 30px;
         background-repeat: no-repeat;
