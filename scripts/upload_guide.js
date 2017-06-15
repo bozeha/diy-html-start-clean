@@ -118,13 +118,10 @@ function youtube_options(current_this) {
 
   $(current_this).parent().find('input.guide_videos_array').attr('readonly', true);
   $(current_this).parent().find('input.guide_videos_array').css('background-color', '#D3D3D3');
-  //$('form .add_guide_videos_array input.guide_videos_array').last().attr('readonly', true);
-  //$('form .add_guide_videos_array input.guide_videos_array').last().css('background-color','#D3D3D3');
   disable_next(false);
 }
 
 function disable_next(current_step) {
-  //current_step?$('#gray-div').css('display','block'):$('#gray-div').css('display','none');
   if (current_step == true) {
     $('.button_youtube').attr("disabled", true);
     $('.button_textarea').attr("disabled", true);
@@ -179,7 +176,6 @@ function removeBlock(current_div, number_of_step_to_remove, type_of_block) {
 
 
 
-  //console.log($(current_div ).children("label").val());
 }
 
 
@@ -198,12 +194,6 @@ function step_between(current_between) {
     temp_loop_array['text_and_img']++;
 
     $('form .add_another_step').last().appendTo($(current_between).parent());
-
-    /* $('form .add-new-step-between').last().insertAfter($(current_between).parent().parent());
-     $('.add-new-step-between').each(function(i){
-       $(this).attr('data-between-number',i+1);
-       $(this).attr('data-current-place',i+1);
-     })*/
 
     //to block the resetimages i'm adding a class 
     $(current_between).parent().find('.add_another_Step input.fileToUpload').addClass('run_reset_images_between');

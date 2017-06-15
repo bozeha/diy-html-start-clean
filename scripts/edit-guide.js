@@ -34,6 +34,15 @@ $('#guide_title_en').val(guide_array['guide_title_en']);
 $('#guide_title').val(guide_array['guide_title']);
 $('#guide_sub_title').val(guide_array['guide_subtitle']);
 $('#guide_keywords').val(guide_array['guide_keywords']);
+if(guide_array['guide_redirect']==1)
+{
+    $('#guide_redirect').attr("checked", true);
+}
+else
+{
+    $('#guide_redirect').attr("checked", false);
+}
+$('#guide_redirect_url').val(guide_array['guide_redirect_url']);
 $("#subject_name").val($("#subject_name [subject-user-id="+guide_array['subject']+"]").val());
 $("#nick_name").val($("#nick_name [data-user-id="+guide_array['user']+"]").val());
 //$("#nick_name").val($("#nick_name option")[guide_array['user']].value);

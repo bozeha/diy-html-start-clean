@@ -14,7 +14,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle,keywords , guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array FROM guides WHERE id = ".$current_guide;
+$sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle,keywords,redirect,redirect_url,guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array FROM guides WHERE id = ".$current_guide;
 $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
@@ -26,6 +26,8 @@ if ($result->num_rows > 0) {
         $guide_array['guide_title_en'] = $row["guide_title_en"];
         $guide_array['guide_subtitle'] = $row["guide_subtitle"];
         $guide_array['guide_keywords'] = $row["keywords"];
+        $guide_array['guide_redirect'] = $row["redirect"];
+        $guide_array['guide_redirect_url'] = $row["redirect_url"];
         
         $guide_array['guide_accessories_array'] = $row["guide_accessories_array"];
         $guide_array['guide_accessories_array'] = str_replace(",","\",\"",$guide_array['guide_accessories_array']);
@@ -62,6 +64,21 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+
+
+//redirect 
+    if($guide_array['guide_redirect'])
+    {
+        if($guide_array['guide_redirect_url'])
+            {
+                echo "<script>var temp_link = '".$guide_array['guide_redirect_url']."'</script>";
+                echo "<script>  window.location.assign(temp_link);</script>";
+            }
+    } 
+
+///
+
+
 
 echo "<script>var guide_keywords= '".$guide_array['guide_keywords']."'</script>";//use the keywords in the meta.js functions
 
