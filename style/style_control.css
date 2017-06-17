@@ -114,9 +114,11 @@ label {
 
 .top_main_guide_img {
     height: 250px;
-    background-size: cover;
     background-repeat: no-repeat;
-        background-position-y: 50%;
+    background-size:contain;
+    background-position:50%;
+    /*background-size: cover;
+        background-position-y: 50%;*/
 }
 
 #resize_div {
