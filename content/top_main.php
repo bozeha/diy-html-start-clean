@@ -165,7 +165,7 @@ echo <<<BOT
                   <input name='uname' type='text' class="form-control">
                 </li>
               <li>סיסמא
-                  <input name='pass' type='text' class="form-control">
+                  <input name='pass' type='password' class="form-control">
                 </li>
             </ul>
           </form>
