@@ -12,7 +12,7 @@
 <body>
 
   <?php
-include 'content/top_main.php';
+//include 'content/top_main.php';
 ?>
 
     </div>
