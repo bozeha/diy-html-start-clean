@@ -17,7 +17,7 @@ if (isset($_POST['user_nick_name']))
 }
 if (isset($_POST['user_password']))
 {
-    $upload_array_access ['user_password'] = $_POST['user_password'];
+    $upload_array_access ['user_password'] = md5($_POST['user_password']);
 }
 if (isset($_POST['user_type']))
 {

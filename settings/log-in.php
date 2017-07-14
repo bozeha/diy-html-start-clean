@@ -27,7 +27,7 @@ $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         //echo $row["password"];
-        if($row["password"]== $user['pass']){ 
+        if($row["password"]== md5($user['pass'])){ 
             // $_SERVER['HTTP_REFERER'] --> this function get the previous url
             echo "<form id='paypalpayment' name='paypalpayment' action='".$_SERVER['HTTP_REFERER']."' method='post'>";
             echo "<input name='uname' type='hidden'  value='".$user['uname']."' class='form-control'>";
