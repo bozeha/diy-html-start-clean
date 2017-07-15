@@ -4,7 +4,7 @@
 
 include 'content/guides_pull.php';
 
-for($loop2=0;$loop2!=$loop;$loop2++) {
+for($loop2=0;$loop2!=$guides_array['loop'];$loop2++) {
     
     echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-6 selected-guide'><a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn edit-gudie-btn'>לצפיה במדריך</button></a><button class='btn admin-privileges edit-gudie-btn' onclick='markForDelete(this)'>סמן מדריך</button><button class='btn edit-gudie-btn' onclick=window.open('dashboard.php?dash=edit-guide&guide=".$guides_array['id'][$loop2]."')>ערוך מדריך</button><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive  pull-left' style='max-width:177px;height:96px'>";
     echo "<h5 style='font-weight:900;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h5>";

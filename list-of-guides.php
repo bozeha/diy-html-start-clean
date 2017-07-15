@@ -7,19 +7,17 @@
 
 </head>
 <body>
-    <?php 
- 
-include 'content/top_main.php';
-
-?>
+    <?php include 'content/top_main.php'; 
+    include 'content/guides_pull.php'; 
+    ?>
 
   <div class="container">
   <h1></h1>
       <div class="row">
-        <?php include 'content/guides_pull.php'; 
+        <?php 
 
 
-for($loop2=0;$loop2!=$loop;$loop2++) {
+for($loop2=0;$loop2!=$guides_array['loop'];$loop2++) {
         if ($guides_array['active'][$loop2])// if the guide is activete
         {
         echo "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><div class='hovereffect'><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive'>";

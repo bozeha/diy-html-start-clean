@@ -1,13 +1,27 @@
 <?php
+if(isset($_GET['guide'])) {
+    $current_guide = $_GET['guide'];
+    // testeverychar is securety function protect from sql injection
+    if (testEveryChar($current_guide))
+        {    
+            startPull($current_guide);
+        }
+        else
+        {
+            worngInfo();   
+        }
+}else {
+    worngInfo();
+}
+
+function startPull($current_guide)
+{
+
+
 include 'settings/connect.php';
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 $guide_array=[];
 $temp_temp = [];
-if(isset($_GET['guide'])) {
-    $current_guide = $_GET['guide'];
-}else {
-    //$test = '';
-}
 mysqli_query($connection, "set names 'utf8'");
 // Check connection
 if ($connection->connect_error) {
@@ -16,7 +30,7 @@ if ($connection->connect_error) {
 
 $sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle,keywords,redirect,redirect_url,guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array FROM guides WHERE id = ".$current_guide;
 $result = $connection->query($sql);
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $guide_array['id'] = $row["id"];
         $guide_array['subject'] = $row["subject"];
@@ -61,13 +75,8 @@ if ($result->num_rows > 0) {
         $guide_array['type_of_steps_array']=$string2json;
         
     }
-} else {
-    echo "0 results";
-}
 
-
-//redirect 
-    if($guide_array['guide_redirect'])
+ if($guide_array['guide_redirect'])
     {
         if($guide_array['guide_redirect_url'])
             {
@@ -76,11 +85,16 @@ if ($result->num_rows > 0) {
             }
     } 
 
+echo "<script>var guide_keywords= '".$guide_array['guide_keywords']."'</script>";//use the keywords in the meta.js functions
+
+
+
+//redirect 
+   
 ///
 
 
 
-echo "<script>var guide_keywords= '".$guide_array['guide_keywords']."'</script>";//use the keywords in the meta.js functions
 
 // start pull accessores 
 //$access_loop =0;
@@ -98,8 +112,6 @@ if ($result->num_rows > 0) {
 }
 
 
-
-$connection->close();
 
 
 
@@ -188,6 +200,24 @@ foreach($guide_array['type_of_steps_array'] as $val)
     $array_of_loops['main']++;
 }
 
-$guide_array['guide_videos_array']
+$guide_array['guide_videos_array'];
+
+
+
+$connection->close();
+}
+
+ else {
+    worngInfo();
+}
+}
+
+
+function worngInfo()
+{
+    echo "<script>function goBack(){window.history.back()}</script>";
+    echo "<div onclick='goBack()' id='go_back'>המדריך לא נמצא חזור חזרה</div>";
+
+}
 
 ?>

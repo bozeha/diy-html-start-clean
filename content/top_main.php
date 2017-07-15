@@ -1,4 +1,8 @@
 <?php
+
+
+
+include 'settings/security.php';
 include 'settings/connect.php';
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 $subjects_array=[];
