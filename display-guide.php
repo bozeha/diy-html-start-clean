@@ -11,13 +11,8 @@
      
   <div class="container">
 
-
-
         <?php include 'content/guide_pull.php'; ?>
-        
-
-
-
+      
     </div>
     <?php include 'content/footer.php'; ?>
 </body>

@@ -1,6 +1,7 @@
 <?php
 if(isset($_GET['guide'])) {
     $current_guide = $_GET['guide'];
+    
     // testeverychar is securety function protect from sql injection
     if (testEveryChar($current_guide))
         {    
@@ -28,6 +29,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
+$current_guide = mysqli_real_escape_string($connection, $current_guide);
 $sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle,keywords,redirect,redirect_url,guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array FROM guides WHERE id = ".$current_guide;
 $result = $connection->query($sql);
 if ($result && $result->num_rows > 0) {

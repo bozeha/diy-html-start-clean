@@ -6,10 +6,6 @@ if(isset($_GET['msg'])) {
     echo "<h3>".$message."</h3>";
 }
 
-
-
-
-
 if(isset($_GET['subject'])) {
     $current_subject = $_GET['subject'];
     // testeverychar is securety function protect from sql injection
@@ -39,7 +35,7 @@ mysqli_query($connection, "set names 'utf8'");
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-
+$current_subject = mysqli_real_escape_string($connection, $current_subject);
 if ($current_subject=='all'){$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides";}
 else {$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides WHERE subject = ".$current_subject;}
 $result = $connection->query($sql);
