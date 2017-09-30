@@ -21,13 +21,16 @@ setTimeout(function(){
 }, 2000);
 
 
-}, 5000);
-})
+}, 5000)
 
+
+
+})
 
 function switchPopUp(bool)
 {
     (bool == true)?$('#pop_up_ad').css('display','block'):$('#pop_up_ad').css('display','none');
+
  
 }
 
