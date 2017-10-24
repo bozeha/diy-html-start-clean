@@ -11,7 +11,7 @@
     include 'content/guides_pull.php'; 
     ?>
 
-  <div class="container">
+  <div class="container list-of-guides">
   <h1></h1>
       <div class="row">
         <?php 
@@ -20,7 +20,7 @@
 for($loop2=0;$loop2!=$guides_array['loop'];$loop2++) {
         if ($guides_array['active'][$loop2])// if the guide is activete
         {
-        echo "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><div class='hovereffect'><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive'>";
+        echo "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 guide-block'><div class='hovereffect'><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive'>";
         echo "<div class='overlay'><h2 >".$guides_array['guide_title'][$loop2]."</h2>";
         echo "<a class='info' href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><p>".$guides_array['guide_subtitle'][$loop2]."</p>";
         echo "</a></div></div></div>";

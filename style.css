@@ -145,3 +145,13 @@ div.an-add
     }
 
 }
+.list-of-guides .guide-block
+{
+    float:right;
+}
+#main-index-page h1
+{
+   font-family: 'Suez One', serif;
+   font-size:50px;
+   padding:50px;
+}

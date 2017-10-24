@@ -16,3 +16,4 @@
  <script src='scripts/security.js'></script>
  <script src='scripts/meta.js'></script>
  <link rel="icon" type="image/png" href="images/web/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
