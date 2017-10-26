@@ -77,34 +77,45 @@ if(isset($_POST['uname'])) {
           }
 ?>
 
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <!-- <div class="container"> -->
-      <!-- <div class="navbar-header"> -->
-        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">  
-        <span class="navbar-toggler-icon "></span>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand text-primary" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
-      <!-- </div> -->
-      <div id="navbar" class="align-items-center navbar-collapse collapse justify-content-end">
-        <ul class="navbar-nav align-items-center flex-last">
-          <li class="nav-item"><a class="nav-link h4" href="index.php">דף הבית</a></li>
-          <li class="nav-item dropdown">
-            <a href="#" class="dropdown-toggle nav-link h4" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">מדריכים<span class="caret"></span></a>
+        <a class="navbar-brand" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="index.php">דף הבית</a></li>
+          <!--<li><a href="#">מדריכים</a></li>-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">מדריכים<span class="caret"></span></a>
             <ul class="dropdown-menu" id='top_main_drop'>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link h4" href="#">הודותינו</a>
-          </li>
+          <li><a href="#">הודותינו</a></li>
           
           <?php
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
           {
-          echo "<li class='nav-item'><a class='nav-link h4' href='dashboard.php'>לוח הבקרה</a></li>";
-          $class_mess="text-success";
+          echo "<li><a href='dashboard.php'>לוח הבקרה</a></li>";
+
             }
-            else $class_mess="text-warning";
             ?>
+          <li>
+            <?php
+        if(isset($_POST['mess'])) {
+    $mess = $_POST['mess'];
+    echo "<h3 class='message_text'>".$mess."</h3>";
+}
+    ?>
+
+            </li>
+
         </ul>
         <?php
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
@@ -112,17 +123,17 @@ if(isset($_POST['uname'])) {
 
 echo <<<BOT
 
-     <div id='top-main-message' class='mr-auto d-flex flex-row align-items-center'> <form action="index.php" method="post" name='log_out' id='log_out'>
+     <div id='top-main-message'> <form action="index.php" method="post" name='log_out' id='log_out'>
             
             
-                  <button class='btn btn-outline-warning my-2 my-sm-0'>התנתק</button>
+                  <button class='btn log_out_button'>התנתק</button>
                   <input name='uname' type='hidden' class="form-control">
                   <input name='status' type='hidden' value='false' class="form-control">
           </form>
           
 BOT;
 
-              echo "<h5 class='ml-5 pull-left ".$class_mess."'>". $_SESSION['uname']."  ברוך הבא   </h5></div>";
+              echo "<h5 class='pull-left'>". $_SESSION['uname']."  ברוך הבא   </h5></div>";
 
             
                   echo "<script type='text/javascript'>privileges('".$_SESSION['utype']."')</script>";
@@ -141,45 +152,44 @@ BOT;
               }
 
 
+
           }
           else {
-            if(isset($_POST['mess'])) {
-              $mess = $_POST['mess'];
-              echo "<h5 class='message_text pr-3 mr-auto ".$class_mess."'>".$mess."</h5>";
-            }
+
 echo <<<BOT
 
       <form id='log-in-form' action="settings/log-in.php" method="post">
-            <ul class="nav align-items-md-end pr-0 navbar-nav navbar-left">
+            <ul class="nav navbar-nav navbar-left">
                   <li>
                 <a href="#">
-                  <button class='btn btn-outline-success my-2 my-sm-0'>התחבר</button>
+                  <button class='btn'>התחבר</button>
                 </a>
               </li>
-              <li class="navbar-text">
-                  <input name='uname' placeholder="שם משתמש" type='text' class="form-control">
+              <li>שם משתמש
+                  <input name='uname' type='text' class="form-control">
                 </li>
-              <li class="navbar-text">
-                  <input name='pass' placeholder="סיסמא" type='text' class="form-control">
+              <li>סיסמא
+                  <input name='pass' type='password' class="form-control">
                 </li>
             </ul>
           </form>
 BOT;
+
+
           }
 
-      
-  
+
 ?>
     
       </div>
       <!--/.nav-collapse -->
-    <!-- </div> -->
+    </div>
   </nav>
 
   <script>$(document).ready(function(){
 
 $(top_sub).each(function(index){
-      $('#top_main_drop').append("<li class='dropdown-item text-right'><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
+      $('#top_main_drop').append("<li><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
 
 })
 
@@ -187,7 +197,7 @@ $(top_sub).each(function(index){
     })</script>
 
 
-    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:80px;margin-bottom:10px'>
+    <div style="height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:80px;margin-bottom:10px">
 <?php 
                       include 'ads/top-big-ad.php';
               ?>

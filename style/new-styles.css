@@ -1,0 +1,11 @@
+nav #navbar #top-main-message * {
+  margin-bottom: 0px; }
+
+nav #navbar ul {
+  direction: rtl; }
+
+nav #navbar form#log-in-form {
+  margin-bottom: 0px; }
+
+nav #navbar #log-in-form ul li:nth-of-type(1) {
+  padding-bottom: .425rem; }

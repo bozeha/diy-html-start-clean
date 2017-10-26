@@ -166,13 +166,15 @@ table#youtube_table td {
 {
     float:right !important;
 }
-.message_text
+ .message_text
 {
-
+    margin-bottom:0px;
+/*
     line-height:10px;
     font-size:14px;
     color:blue;
-}
+    */
+} 
 .log_out_button
 {
     background-color: transparent;
@@ -185,19 +187,19 @@ table#youtube_table td {
 
 #top-main-message
 {
-    max-width: 150px;
+    /* max-width: 150px; */
     height: 100%;
     display: inline-block;
     float: left;
 }
-#top-main-message button 
+/* #top-main-message button 
 {
 float:none;
 display: table;
     margin: 0 auto;
     border:none;
 
-}
+} */
 .guide-box div,h2,h1
 {
     direction :rtl
