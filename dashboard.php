@@ -2,9 +2,7 @@
 <?php
 if(session_status() == PHP_SESSION_NONE){  
     session_start(); 
-    //echo "tttttttttttttttttttttt".$_SESSION["id"];
     if($_SESSION["id"]==null){
-       // echo "hhhhhhhhhhh";
         }
 }
 if(!(isset($_SESSION["id"]))||($_SESSION["id"]=='')||($_SESSION["id"]==null))
@@ -24,24 +22,20 @@ if(isset($_GET['dash'])) {
     $current_dash = "new-guide-form.php";
 }
  
- /// remove all admin element to unadmin users like option to delet guides
- /*if (($_SESSION['utype']!='admin')&&($_SESSION['utype']!='super_admin'))
- {
-     echo "<script>$('.admin-privileges').remove()</script>";
-
-    } */
-
+ 
 
 ?>
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <link href="style/style_control.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <script src="scripts/dashboard.js"></script>
 	<meta charset="utf-8" />
+
+
+    
 	<!--<link rel="icon" type="image/png" href="images/web/favicon.ico">-->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
@@ -50,20 +44,15 @@ if(isset($_GET['dash'])) {
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="style/dashboard.css" rel="stylesheet" />
-
-
-
-
+    <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet" />-->
+    <!-- <link href="style/dashboard.css" rel="stylesheet" />  -->
 
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <!-- <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/> -->
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -78,6 +67,9 @@ if(isset($_GET['dash'])) {
 
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <div class="wrapper">
     <div id='resize_div'></div>
     <div id='load_div'></div>
@@ -145,11 +137,11 @@ include 'content/top_main.php';
     -->
 
     	<div class="sidebar-wrapper">
-            <div class="logo">
+            <!-- <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
                     Creative Tim
                 </a>
-            </div>
+            </div> -->
 
             <ul class="nav">
                 <li class="active" id='li-guide-form'>
@@ -233,37 +225,6 @@ include 'content/top_main.php';
         </div>
 
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>
 
     </div>
 </div>

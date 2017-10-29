@@ -77,7 +77,7 @@ if(isset($_POST['uname'])) {
           }
 ?>
 
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+<nav class="navbar navbar-full navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <!-- <div class="container"> -->
       <!-- <div class="navbar-header"> -->
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">  
@@ -187,7 +187,7 @@ $(top_sub).each(function(index){
     })</script>
 
 
-    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:80px;margin-bottom:10px'>
+    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:74px;margin-bottom:10px'>
 <?php 
                       include 'ads/top-big-ad.php';
               ?>
