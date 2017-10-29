@@ -232,7 +232,7 @@ include 'content/top_main.php';
 
 </body>
 
-    <!--   Core JS Files      -->
+    <!--   Core JS Files-->
     <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
