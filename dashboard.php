@@ -127,7 +127,9 @@ if(isset($_GET['dash'])) {
 include 'content/top_main.php';
 
 ?>
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+<div class="container">
+<div class="row">
+    <div class="sidebar col-3" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
     <!--
 
@@ -143,7 +145,7 @@ include 'content/top_main.php';
                 </a>
             </div> -->
 
-            <ul class="nav">
+            <ul class="sidebar">
                 <li class="active" id='li-guide-form'>
                     <a href="dashboard.php?dash=new-guide-form">
                         <i class="pe-7s-graph"></i>
@@ -196,7 +198,7 @@ include 'content/top_main.php';
     	</div>
     </div>
 
-    <div class="main-panel">
+    <div class="main-panel col-9">
       
 
      <div class="content">
@@ -226,6 +228,8 @@ include 'content/top_main.php';
 
 
 
+    </div>
+    </div>
     </div>
 </div>
 
