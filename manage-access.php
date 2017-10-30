@@ -14,6 +14,6 @@ include 'settings/pull_access.php';
   <script src='scripts/remove_access.js'></script>
 
 
-  <button class='btn btn-danger pull-left red-button-remove' onclick=elements_to_remove('accessories')>מחק את המוצרים המסומנים</button>
+  <button class='btn btn-outline-danger red-button-remove' onclick=elements_to_remove('accessories')>מחק את המוצרים המסומנים</button>
 
   </div>

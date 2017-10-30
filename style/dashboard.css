@@ -1,7 +1,7 @@
 
 body
 {
-    direction:rtl;
+    /* direction:rtl; */
 }
 .table-responsive > div.container
 {
@@ -31,6 +31,12 @@ overflow:visible !important;
 {
 color : #B0ABB4;
 }
+/* #main_php_div >div
+{
+height:150px;
+background-color:red;
+
+} */
 #main_php_div .btn-danger
 {
     width: 10%;

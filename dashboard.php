@@ -46,7 +46,7 @@ if(isset($_GET['dash'])) {
 
     <!-- Bootstrap core CSS     -->
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet" />-->
-    <!-- <link href="style/dashboard.css" rel="stylesheet" />  -->
+    <link href="style/dashboard.css" rel="stylesheet" /> 
 
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet"/>
@@ -146,44 +146,44 @@ include 'content/top_main.php';
             </div> -->
 
             <ul class="sidebar">
-                <li class="active" id='li-guide-form'>
-                    <a href="dashboard.php?dash=new-guide-form">
+                <li class=" nav-link" id='li-guide-form'>
+                    <a class=" active btn btn-primary btn-lg " role="button" href="dashboard.php?dash=new-guide-form">
                         <i class="pe-7s-graph"></i>
                         <p>הוספת מדריך</p>
                     </a>
                 </li>
-                <li id='li-new-access'>
-                    <a href="dashboard.php?dash=new-access">
+                <li class="nav-link" id='li-new-access'>
+                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=new-access">
                         <i class="pe-7s-note2"></i>
                         <p>הוספת מיצרך</p>
                     </a>
                 </li>
-                <li id='li-manage-users' class='admin-privileges'>
-                    <a href="dashboard.php?dash=manage-users">
+                <li id='li-manage-users' class='nav-link admin-privileges'>
+                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-users">
                         <i class="pe-7s-user"></i>
                         <p>ערוך משתמשים</p>
                     </a>
                 </li>
-                <li id='li-manage-guides'>
-                    <a href="dashboard.php?dash=manage-guides">
+                <li class="nav-link" id='li-manage-guides'>
+                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-guides">
                         <i class="pe-7s-news-paper"></i>
                         <p>ניהול מדריכים</p>
                     </a>
                 </li>
-                <li id='li-manage-access'>
-                    <a href="dashboard.php?dash=manage-access">
+                <li class="nav-link" id='li-manage-access'>
+                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-access">
                         <i class="pe-7s-science"></i>
                         <p>ערוך מיצרכים</p>
                     </a>
                 </li>
-                <li id='li-manage-sub'>
-                    <a href="dashboard.php?dash=manage-sub">
+                <li class="nav-link" id='li-manage-sub'>
+                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-sub">
                         <i class="pe-7s-rocket"></i>
                         <p>הוסף קטגוריה</p>
                     </a>
                 </li>
-                <li>
-                    <a href="notifications.html">
+                <li class="nav-link">
+                    <a class="btn btn-primary btn-lg " role="button" href="notifications.html">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>

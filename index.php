@@ -17,21 +17,33 @@
   <?php include 'content/top_main.php';?>
     <div class="container">
       <div class="row">
-        <h1>עשה זאת בעצמך</h1>
+        <!-- <h1>עשה זאת בעצמך</h1> -->
       </div>
     </div>
     <div id="section2">
       <div class="container">
         <div class="row">
-          <div id="adds" style="" class="col-md-4 hidden-xs hidden-sm">
-            <div class='row'>
-              <div class='col-xs-12  an-add' style=''>
-                <?php include 'ads/left-big-ad.php';?>
-              </div>
-            </div>
-          </div>
-          <?php 
           
+          <?php 
+
+
+          include 'content/guides_pull.php';
+
+
+          for($loop2=0;$loop2!=$guides_array['loop'];$loop2++) {
+            
+            //echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-6 selected-guide'><a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn edit-gudie-btn'>לצפיה במדריך</button></a><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive  pull-left' style='max-width:177px;height:96px'>";
+            //echo "<h5 style='font-weight:900;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h5>";
+            //echo $guides_array['guide_images_array_fix'][$loop2][0];
+             //$temp_fix = str_replace ('/','&#47;',$guides_array['guide_images_array_fix'][$loop2][0]);
+            //echo $temp_fix;
+            echo "<div data-guide-id='".$guides_array['id'][$loop2]."' class='col-md-4'> <h3 class='text-center mb-5'>".$guides_array['guide_title'][$loop2]."</h3> <div class='card card-01 height-fix'> <div class='card-img-top d-flex' style='background-image:url(".$guides_array['guide_images_array_fix'][$loop2][0].")'><div class='special-overlay cont-button align-self-end p-2 bd-highlight'>  <p class='card-text'><a href='#' class='fa fa-bookmark-o'></a><a class='glyphicon glyphicon-chevron-left btn btn-outline-success' href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>למדריך</a></p> </div> </div> </div> </div>";
+            
+            //echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
+
+           // echo "</div>";
+        }
+      
           // include 'content/subjects_pull.php'; // get ths subjects data and buiding subjects blocks
           // for($loop2=0;$loop2!=$loop;$loop2++) {
           //     echo "<figure class='snip1570 col-lg-3 col-md-4 col-sm-6 col-xs-12'><img src='".$subjects_array['img'][$loop2]."'  alt='sample88' /><i class='ion-android-arrow-forward'></i>";

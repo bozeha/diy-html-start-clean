@@ -25,9 +25,9 @@ else
     $guides_array= startPullAll($current_subject);
 }
 
-
 function startPullAll($current_subject)
 {
+    
 include 'settings/connect.php';
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 mysqli_query($connection, "set names 'utf8'");
@@ -35,6 +35,7 @@ mysqli_query($connection, "set names 'utf8'");
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
+
 $current_subject = mysqli_real_escape_string($connection, $current_subject);
 if ($current_subject=='all'){$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides";}
 else {$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides WHERE subject = ".$current_subject;}

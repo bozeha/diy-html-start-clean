@@ -8,7 +8,10 @@
             "taskName": "Sass Compile",
             "type": "shell",
             "command": "node-sass style/new-styles.scss style/new-styles.css",
-            "group": "build"
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

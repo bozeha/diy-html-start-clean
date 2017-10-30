@@ -9,3 +9,25 @@ nav #navbar form#log-in-form {
 
 nav #navbar #log-in-form ul li:nth-of-type(1) {
   padding-bottom: .425rem; }
+
+#section2 {
+  margin-top: 50px; }
+  #section2 .container .row > div > div > div.card-img-top {
+    background-size: cover;
+    background-repeat: no-repeat; }
+  #section2 .container .row > div > div .cont-button {
+    height: 30%; }
+  #section2 .container .row > div .card-img-top {
+    height: 350px; }
+  #section2 .container .row > div h3 {
+    height: 60px;
+    padding-top: 20px; }
+
+.special-overlay {
+  background: -moz-linear-gradient(top, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001a606f', endColorstr='#e8154159',GradientType=0 ); }

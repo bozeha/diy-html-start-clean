@@ -2,28 +2,28 @@
 $(document).ready(function () {
     var url = window.location.href;
     var n;
-    $('.nav li').removeClass('active');
-    if (url.search(/new-guide-form/i) > -1) {
-        $('#li-guide-form').addClass('active');
+    $('.sidebar li a').removeClass('active');
+    if (url.search('new-guide-form') > -1) {
+        $('#li-guide-form a').addClass('active');
     }
-    else if (url.search(/new-access/i) > -1) {
-        $('#li-new-access').addClass('active');
+    else if (url.search('new-access') > -1) {
+        $('#li-new-access a').addClass('active');
 
     }
-    else if (url.search(/manage-guides/i) > -1) {
-        $('#li-manage-guides').addClass('active');
+    else if (url.search('manage-guides') > -1) {
+        $('#li-manage-guides a').addClass('active');
 
     }
-    else if (url.search(/manage-access/i) > -1) {
-        $('#li-manage-access').addClass('active');
+    else if (url.search('manage-access') > -1) {
+        $('#li-manage-access a').addClass('active');
 
     }
-    else if (url.search(/manage-users/i) > -1) {
-        $('#li-manage-users').addClass('active');
+    else if (url.search('manage-users') > -1) {
+        $('#li-manage-users a').addClass('active');
 
     }
-    else if (url.search(/manage-sub/i) > -1) {
-        $('#li-manage-sub').addClass('active');
+    else if (url.search('manage-sub') > -1) {
+        $('#li-manage-sub a').addClass('active');
 
     }
 });
