@@ -33,13 +33,13 @@ nav
 #section2
 {
     margin-top:50px;
-    .container{
+    >.container{
+        width:100%;
         .row
         {
-            >div
-            {
-                >div
+              >div
                 {
+                    margin-top:3%;
                     >div.card-img-top
                     {
                     background-size:cover;
@@ -60,7 +60,7 @@ nav
                     padding-top: 20px;
                 }
                 
-            }
+            
         }
     }
 }

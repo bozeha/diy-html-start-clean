@@ -160,7 +160,7 @@ echo <<<BOT
                   <input name='uname' placeholder="שם משתמש" type='text' class="form-control">
                 </li>
               <li class="navbar-text">
-                  <input name='pass' placeholder="סיסמא" type='text' class="form-control">
+                  <input name='pass' type="password" placeholder="סיסמא" type='text' class="form-control">
                 </li>
             </ul>
           </form>

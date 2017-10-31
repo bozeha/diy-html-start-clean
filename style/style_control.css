@@ -1,6 +1,12 @@
+body,a,div,span,p
+{
+    font-family:rubik;
+}
+
 body {
+    font-family:rubik;
     text-align: right;
-    background-color: #f6f1ea !important;
+    background-color: #fff;
     
 
 }
