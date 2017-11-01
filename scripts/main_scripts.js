@@ -8,7 +8,7 @@ $(document).ready(function () {
     })
 
     // this to show messages on hover the images tooltip of bootstrap 
-    $('[data-toggle="tooltip"]').tooltip();   
+    /* $('[data-toggle="tooltip"]').tooltip();   */ 
  //start_count_time_login();
 })
 function fullSizeImage(current_img) {

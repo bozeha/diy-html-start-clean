@@ -116,7 +116,7 @@ div.an-add
 #close_pop
 {
     display:none;
-    background-image: url(images/web/x.png);
+    background-image: url(../images/web/x.png);
     right: 0px;
     background-color: white;
     color: black;
