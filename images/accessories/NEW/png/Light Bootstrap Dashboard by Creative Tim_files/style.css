@@ -8,11 +8,11 @@
     src: url('style/open.ttf');
 }
 
-@font-face {
+/* @font-face {
     font-family: museo;
     src: url('style/museo.otf');
 }
-
+ */
 .row p a {
     color: #fff
 }

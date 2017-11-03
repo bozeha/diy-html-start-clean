@@ -8,18 +8,6 @@
     src: url('style/open.ttf');
 }
 
-@font-face {
-    font-family: museo;
-    src: url('style/museo.otf');
-}
-
-
-
-body {
-    font-family: museo;
-}
-
-
 .add_another_step {
     padding-bottom: 20px;
 }
@@ -154,4 +142,8 @@ div.an-add
    font-family: 'Suez One', serif;
    font-size:50px;
    padding:50px;
+}
+.top-big-ad
+{
+    margin-top:72px;
 }

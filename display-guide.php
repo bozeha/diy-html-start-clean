@@ -6,6 +6,9 @@
   <script src="scripts/pop-up-ad.js"></script>
 </head>
 <body>
+<?php 
+                      include 'ads/top-big-ad.php';
+              ?>
     <?php include 'content/top_main.php'; ?>
   <div id='resize_div'></div>
      

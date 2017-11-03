@@ -1,6 +1,6 @@
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- top ad -->
-<ins class="adsbygoogle"
+<ins class="adsbygoogle top-big-ad"
      style="display:block"
      data-ad-client="ca-pub-7763767729656761"
      data-ad-slot="8072274920"
