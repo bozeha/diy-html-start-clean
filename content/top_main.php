@@ -83,7 +83,7 @@ if(isset($_POST['uname'])) {
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">  
         <span class="navbar-toggler-icon "></span>
         </button>
-        <a class="navbar-brand text-primary" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
+        <a class="navbar-brand text-primary text-left" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
       <!-- </div> -->
       <div id="navbar" class="align-items-center navbar-collapse collapse justify-content-end">
         <ul class="navbar-nav align-items-center flex-last">
