@@ -1,3 +1,26 @@
+.dropdown-item:active {
+  background-color: none !important; }
+
+#dashboard_page {
+  margin-top: 100px;
+  margin-bottom: 30px; }
+  #dashboard_page ul.sidebar li {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px; }
+    #dashboard_page ul.sidebar li.active {
+      background-color: rgba(60, 60, 60, 0.15); }
+    #dashboard_page ul.sidebar li > a {
+      padding-top: 11px;
+      padding-bottom: 0px; }
+      #dashboard_page ul.sidebar li > a p {
+        margin-bottom: 0px; }
+
+#main-index-page #section2 > div.container {
+  margin-top: 15px; }
+
 nav #navbar #top-main-message * {
   margin-bottom: 0px; }
 

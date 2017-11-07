@@ -8,8 +8,7 @@
     <title>Document</title>
 </head>
 
-<body style='padding-top:100px'>
-
+<body>
     <div class="container">
 
       <?php
