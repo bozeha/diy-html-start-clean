@@ -70,7 +70,7 @@ if(isset($_GET['dash'])) {
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<div class="wrapper">
+<div class="wrapper" id="dashboard_page">
     <div id='resize_div'></div>
     <div id='load_div'></div>
     <div id='pop_message'>
@@ -147,53 +147,42 @@ include 'content/top_main.php';
 
             <ul class="sidebar">
                 <li class=" nav-link" id='li-guide-form'>
-                    <a class=" active btn btn-primary btn-lg " role="button" href="dashboard.php?dash=new-guide-form">
+                    <a class=" active btn  btn-lg " role="button" href="dashboard.php?dash=new-guide-form">
                         <i class="pe-7s-graph"></i>
                         <p>הוספת מדריך</p>
                     </a>
                 </li>
                 <li class="nav-link" id='li-new-access'>
-                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=new-access">
+                    <a class="btn  btn-lg " role="button" href="dashboard.php?dash=new-access">
                         <i class="pe-7s-note2"></i>
                         <p>הוספת מיצרך</p>
                     </a>
                 </li>
                 <li id='li-manage-users' class='nav-link admin-privileges'>
-                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-users">
+                    <a class="btn  btn-lg " role="button" href="dashboard.php?dash=manage-users">
                         <i class="pe-7s-user"></i>
                         <p>ערוך משתמשים</p>
                     </a>
                 </li>
                 <li class="nav-link" id='li-manage-guides'>
-                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-guides">
+                    <a class="btn  btn-lg " role="button" href="dashboard.php?dash=manage-guides">
                         <i class="pe-7s-news-paper"></i>
                         <p>ניהול מדריכים</p>
                     </a>
                 </li>
                 <li class="nav-link" id='li-manage-access'>
-                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-access">
+                    <a class="btn  btn-lg " role="button" href="dashboard.php?dash=manage-access">
                         <i class="pe-7s-science"></i>
                         <p>ערוך מיצרכים</p>
                     </a>
                 </li>
                 <li class="nav-link" id='li-manage-sub'>
-                    <a class="btn btn-primary btn-lg " role="button" href="dashboard.php?dash=manage-sub">
+                    <a class="btn  btn-lg " role="button" href="dashboard.php?dash=manage-sub">
                         <i class="pe-7s-rocket"></i>
                         <p>הוסף קטגוריה</p>
                     </a>
                 </li>
-                <li class="nav-link">
-                    <a class="btn btn-primary btn-lg " role="button" href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<!--<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>-->
+
             </ul>
     	</div>
     </div>
@@ -206,10 +195,7 @@ include 'content/top_main.php';
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="header">
-                                <h4 class="title">Striped Table with Hover</h4>
-                                <p class="category">Here is a subtitle for this table</p>
-                            </div>
+                           
                             <div id='main_php_div' class="content table-responsive table-full-width">
                                <?php include $current_dash;?>
                             </div>

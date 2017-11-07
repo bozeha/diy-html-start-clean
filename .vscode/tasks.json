@@ -9,7 +9,7 @@
             "type": "shell",
             "command": "node-sass style/new-styles.scss style/new-styles.css",
             "group": {
-                "kind": "build",
+                "kind": "test",
                 "isDefault": true
             }
         }

@@ -11,6 +11,12 @@ body {
 
 }
 
+
+.list-of-guides 
+{
+margin-top:30px;
+}
+
 input {
     text-align: right;
 }

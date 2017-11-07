@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<body style='padding-top:100px'>
+<body>
 
     <div class="container">
 
@@ -75,14 +75,14 @@ include 'settings/pull_users.php';
 
   <link href="style/style_control.css" rel="stylesheet" />
 
-  <div class='row'>
+  
   <script src='scripts/remove_access.js'></script>
 
 
   <button class='btn btn-danger red-button-remove-user' onclick=elements_to_remove('users')>מחק את המשתמש המסומן</button>
   <div class='alert-danger' id='done_message'>
     </div>
-  </div>
+  
 
       </div>
 </body>
