@@ -12,7 +12,7 @@
     <?php include 'content/top_main.php'; ?>
   <div id='resize_div'></div>
      
-  <div class="container">
+  <div class="container display-guide">
 
         <?php include 'content/guide_pull.php'; ?>
       
