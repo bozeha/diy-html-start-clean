@@ -18,6 +18,15 @@ $current_date= $_GET['date'];
 
 
 
+/* 
+$ip_address= 123;
+$user_name= 'boze';
+$current_date= 'dddddd';
+
+ */
+ 
+
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -28,6 +37,10 @@ if ($conn->connect_error) {
 } 
 
 $sql = "UPDATE sites SET ip='".$ip_address."',date='".$current_date."' WHERE name='".$user_name."'";
+/* $sql = "INSERT INTO sites (name, ip, date)
+VALUES ('boze', '123', '123')"; */
+
+
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
