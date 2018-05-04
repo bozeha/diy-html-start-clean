@@ -30,8 +30,12 @@
 
 
           for($loop2=0;$loop2!=$guides_array['loop'];$loop2++) {
-     
-            echo "<div data-guide-id='".$guides_array['id'][$loop2]."' class='col-md-3 align-items-stretch d-flex'> <div class='card col-xs-12'><div class='card-img-top' style='background-image:url(".$guides_array['guide_images_array_fix'][$loop2][0].")'></div> <div class='card-block'><h4 class='card-title'>".$guides_array['guide_title'][$loop2]."</h3> <p class='card-text'>".$guides_array['guide_subtitle'][$loop2]."<a class='glyphicon glyphicon-chevron-left btn btn-outline-success' href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>למדריך</a></p></div> </div></div>";
+            if ($guides_array['active'][$loop2]==1)
+            {
+             // echo "<script>console.log('active ".$guides_array['guide_title'][$loop2]."')</script>";
+              echo "<div data-guide-id='".$guides_array['id'][$loop2]."' class='col-md-3 align-items-stretch d-flex'> <div class='card col-xs-12'><div class='card-img-top' style='background-image:url(".$guides_array['guide_images_array_fix'][$loop2][0].")'></div> <div class='card-block'><h4 class='card-title'>".$guides_array['guide_title'][$loop2]."</h3> <p class='card-text'>".$guides_array['guide_subtitle'][$loop2]."<a class='glyphicon glyphicon-chevron-left btn btn-outline-success' href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><span class='glyphicon glyphicon-chevron-left' aria-hidden='true'></span>למדריך</a></p></div> </div></div>";
+            
+            }
 
         }
     

@@ -131,13 +131,15 @@ BOT;
 
               //time out after 10 min (60 sec * 10 )
 
-              if ($_SESSION['timeout'] + 30 * 60 < time()) {   
-                
-                    echo "<script>$('.log_out_button').click()</script>";
-
-              } else {
-                // the page has not pass time so reset time for more 10 minites
-                $_SESSION['timeout'] = time();
+              if ($_SESSION['timeout'] + (30 * 60) < time()) {   
+                    //echo "<script>alert('".$_SESSION['timeout']."time is out".time()."')</script>";
+                    echo "<script>$('#log_out button').trigger('click')</script>";
+                    
+                  } else {
+                    echo "<script>alert('1111')</script>";
+                    // the page has not pass time so reset time for more 10 minites
+                    $_SESSION['timeout'] = time();
+                    //echo "<script>alert('".$_SESSION['timeout']."time is out".time()."')</script>";
               }
 
 
