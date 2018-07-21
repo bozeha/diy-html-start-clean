@@ -13,8 +13,12 @@
     #dashboard_page ul.sidebar li.active {
       background-color: rgba(60, 60, 60, 0.15); }
     #dashboard_page ul.sidebar li > a {
-      padding-top: 11px;
-      padding-bottom: 0px; }
+      margin: 0 auto;
+      padding: 0px;
+      float: none;
+      display: block;
+      padding-top: 10px;
+      padding-bottom: 10px; }
       #dashboard_page ul.sidebar li > a p {
         margin-bottom: 0px; }
 
@@ -50,10 +54,13 @@ nav #navbar #log-in-form ul li:nth-of-type(1) {
         #section2 > .container .row > div > div .cont-button {
           height: 30%; }
       #section2 > .container .row > div .card-img-top {
-        height: 350px; }
+        height: 240px; }
       #section2 > .container .row > div h3 {
         height: 60px;
         padding-top: 20px; }
+
+display-guide {
+  margin-top: 72px; }
 
 .special-overlay {
   background: -moz-linear-gradient(top, rgba(26, 96, 111, 0) 0%, rgba(26, 96, 111, 0) 1%, rgba(24, 87, 104, 0.91) 31%, rgba(21, 65, 89, 0.91) 100%);

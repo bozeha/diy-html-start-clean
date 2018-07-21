@@ -1,7 +1,7 @@
 <?php
 
-
-
+include 'include-sources/utility-functions.php';/// function to help with programming like logs ..
+include 'include-sources/all-sources.php';// all includes link bootstrap ... 
 include 'settings/security.php';
 include 'settings/connect.php';
 $connection = mysqli_connect($servername, $username, $password, $dbname);
@@ -34,26 +34,34 @@ $connection->close();
 $loop2 = 0;
 echo "<script>var top_sub_id =[]</script>";
 echo "<script>var top_sub =[]</script>";
+
+
 for($loop2=0;$loop2!=$loop;$loop2++) {
-    
    echo "<script>top_sub_id[".$loop2."]='".$subjects_array['id'][$loop2]."'</script>";
    echo "<script>top_sub[".$loop2."]='".$subjects_array['title'][$loop2]."'</script>";
 }
-
 
 
 ?>
 
 
 <?php
-   if(session_status() == PHP_SESSION_NONE){  session_start(); }
-if(isset($_POST['uname'])) {
+   
+ 
+   if (!isset($_SESSION)){
+      session_start();  
+      
+    }
+    if(isset($_POST['uname'])) {
+      
+      $_SESSION['uname'] = $_POST['uname'];
+      $_SESSION['utype'] = $_POST['type'];
+      
+      
+      //   echo $user['uname'];
+    }
     
-              $_SESSION['uname'] = $_POST['uname'];
-              $_SESSION['utype'] = $_POST['type'];
-              
-              //   echo $user['uname'];
-          }
+    
           if((isset($_POST['status']))&& ($_POST['status'])=='true') {
 
                       $user['status'] = $_POST['status'];
@@ -71,9 +79,10 @@ if(isset($_POST['uname'])) {
           }
           if((isset($_POST['status']))&& ($_POST['status'])=='false') 
           {
-          $_SESSION = array();
+            
+            $_SESSION = array();
+            echo "<script>console.log('destrottttyyyyyyyyyyyyy')</script>";
           session_destroy();
-
           }
 ?>
 
@@ -98,6 +107,7 @@ if(isset($_POST['uname'])) {
           </li>
           
           <?php
+        
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
           {
           echo "<li class='nav-item'><a class='nav-link h4' href='dashboard.php'>לוח הבקרה</a></li>";
@@ -107,6 +117,8 @@ if(isset($_POST['uname'])) {
             ?>
         </ul>
         <?php
+
+           
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
           {
 
@@ -131,14 +143,16 @@ BOT;
 
               //time out after 10 min (60 sec * 10 )
 
-              if ($_SESSION['timeout'] + (30 * 60) < time()) {   
+              if ($_SESSION['timeout'] + (30 * 60) < time()) {  
+                 
+                echo "<script>console.log('timeeeeeeeeeeeeeeeeee');</script>";
                     //echo "<script>alert('".$_SESSION['timeout']."time is out".time()."')</script>";
                     echo "<script>$('#log_out button').trigger('click')</script>";
                     
                   } else {
-                    echo "<script>alert('1111')</script>";
                     // the page has not pass time so reset time for more 10 minites
                     $_SESSION['timeout'] = time();
+                    echo "<script>console.log('time is still good')</script>";
                     //echo "<script>alert('".$_SESSION['timeout']."time is out".time()."')</script>";
               }
 
@@ -179,8 +193,8 @@ BOT;
   </nav>
 
   <script>$(document).ready(function(){
-
 $(top_sub).each(function(index){
+console.log("xxxxxx"+top_sub[index]);
       $('#top_main_drop').append("<li class='dropdown-item text-right'><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
 
 })
