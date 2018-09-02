@@ -194,7 +194,6 @@ BOT;
 
   <script>$(document).ready(function(){
 $(top_sub).each(function(index){
-console.log("xxxxxx"+top_sub[index]);
       $('#top_main_drop').append("<li class='dropdown-item text-right'><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
 
 })

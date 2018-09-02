@@ -1,4 +1,7 @@
 <?php
+include '/settings/php_help_functions.php';
+
+
 if(isset($_GET['guide'])) {
     $current_guide = $_GET['guide'];
     
@@ -14,6 +17,8 @@ if(isset($_GET['guide'])) {
 }else {
     worngInfo();
 }
+
+// return true/false if $str ends with $sub
 
 function startPull($current_guide)
 {
@@ -57,14 +62,26 @@ if ($result && $result->num_rows > 0) {
         $guide_array['guide_images_array'] = $row["guide_images_array"];
         $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
         $guide_array['guide_images_array']=$string2json;
-        
+
+
+
+        //$x =json_decode('["C:\\\fakepath\\\111111.mp4","x578xTJ4T4g?autoplay=0&loop=0&controls=0&rel=0"]');
+       // echo ($row["guide_videos_array"]);
+        //$x = $row["guide_videos_array"];
+        //print_r($x);
+
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
-        $string2json =  json_decode($guide_array['guide_videos_array'],TRUE);
+        $string2json =  json_decode($guide_array['guide_videos_array']);
         $guide_array['guide_videos_array']=$string2json;
-        
-        
-        
-        
+
+        //print_r($guide_array['guide_videos_array']);
+        //print_r($string2json."yyyyyyyyyyyyyyy");
+
+
+
+
+
+
         $guide_array['guide_textarea_array'] = $row["guide_textarea_array"];
         $string2json =  base64_decode($guide_array['guide_textarea_array']);
         $string2json2 = json_decode($string2json,TRUE);
@@ -112,8 +129,6 @@ if ($result->num_rows > 0) {
         //$access_loop++;
     }
 }
-
-
 
 
 
@@ -192,11 +207,21 @@ foreach($guide_array['type_of_steps_array'] as $val)
     }
     else if($guide_array['type_of_steps_array'][$array_of_loops['main']]=="youtube")
     {
-        echo "<div class='row guide-row' ><span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span><div class='guide-box col-12 col-md-6 col-centered'>";
-        echo "";
-        echo "<div class='col-md-12'><iframe width='100%' height='500px' src='https://www.youtube.com/embed/".$guide_array['guide_videos_array'][$array_of_loops['youtube']]."' frameborder='0' allowfullscreen></iframe></div>";
-        echo "</div>";
-        echo "</div>";
+        $current_guide_str =$guide_array['guide_videos_array'][$array_of_loops['youtube']];
+        if(endsWith($current_guide_str , "avi")||endsWith($current_guide_str , "mp4")||endsWith($current_guide_str , "flv"))
+        {
+            echo "<div class='row guide-row' ><span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span><div class='guide-box col-12 col-md-6 col-centered'>";
+            echo "<div class='col-md-12'><video width=\"420\" height=\"100%\" controls>  <source  src='".$guide_array['guide_videos_array'][$array_of_loops['youtube']]."' type=\"video/mp4\"></video></div>";
+            echo "</div>";
+            echo "</div>";
+        }
+        else{
+            echo "<div class='row guide-row' ><span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span><div class='guide-box col-12 col-md-6 col-centered'>";
+            echo "<div class='col-md-12'><iframe width='100%' height='500px' src='https://www.youtube.com/embed/".$guide_array['guide_videos_array'][$array_of_loops['youtube']]."' frameborder='0' allowfullscreen></iframe></div>";
+            echo "</div>";
+            echo "</div>";
+        }
+
         $array_of_loops['youtube']++;
     }
     $array_of_loops['main']++;

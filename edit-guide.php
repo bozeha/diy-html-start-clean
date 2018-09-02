@@ -258,65 +258,76 @@ include 'settings/pull_subjects.php';
       </div>
 
 
-      <div class="add_guide_videos_array">
-        <button type='button' class="btn remove-block btn-danger" onclick="">x</button>
-        <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
-        <div class="form-group">
-          <div class="row">
-            <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
-            <input type="text" class="col-xs-6 pull-right guide_videos_array" name="guide_videos_array_temp">
-            <button type="button" class="conf-button col-xs-2 btn-md btn btn-primary pull-right flash" onclick='youtube_options(this)'>אשר</button>
-          </div>
+        <div class="add_guide_videos_array">
+            <input type="radio" name="upload_vid" value="up_youtube" checked="checked">Youtube<br>
+            <input type="radio" name="upload_vid" value="up_video">Upload video<br>
 
-          <div class="btn-group row" data-toggle="buttons">
+            <button class="btn btn-danger" onclick="">x</button>
+            <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
+            <div class="form-group">
+                <div class="row upload_vid_row">
+                    <input type="file" name="files[]" class="new_vid" accept="video/mp4,video/x-m4v,video/*" multiple>
+                    <button type="button" id='submit-button' class="col-xs-2 btn-md btn btn-primary pull-right flash"
+                            onclick='youtube_options(this)'>אשר
+                    </button>
 
-            <table id='youtube_table'>
-              <tr>
-                <td>
-                  הפעלת הסרטון אוטומתי
-                </td>
-                <td>
-                  הפעלת את הסרטון בלולאה
-                </td>
-                <td>
-                  אפשרות שליטה על הסרטון
-                </td>
-                <td>
-                  הצג סרטונים קשורים בסוף הקטע
-                </td>
-              </tr>
+                </div>
+                <div class="container upload_youtube_row">
+                    <div class="row">
+                        <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
+                        <input type="text" class="col-xs-6 pull-right guide_videos_array" name="guide_videos_array_temp">
+                        <button type="button" id='submit-button' class="col-xs-2 btn-md btn btn-primary pull-right flash"
+                                onclick='youtube_options(this)'>אשר
+                        </button>
+                    </div>
 
-              <tr>
-                <td>
-                  <label class="btn btn-primary col-xs-3 youtube_btn">
-                    <input type="checkbox" id='auto' autocomplete="off">
-                  </label>
-                </td>
-                <td>
-                  <label class="btn btn-primary col-xs-3 youtube_btn">
-                    <input type="checkbox" id='loop' autocomplete="off">
-                  </label>
-                </td>
-                <td>
-                  <label class="btn btn-primary col-xs-3 youtube_btn">
-                    <input type="checkbox" id='controler' autocomplete="off">
-                  </label>
-                </td>
-                <td>
-                  <label class="btn btn-primary col-xs-3 youtube_btn">
-                    <input type="checkbox" id='rel' autocomplete="off">
-                  </label>
-                </td>
-              </tr>
-              <input type="hidden" class="guide_videos_array_finel" name="guide_videos_array[]" />
+                    <div class="btn-group row" data-toggle="buttons">
 
-            </table>
-          </div>
+                        <table id='youtube_table'>
+                            <tr>
+                                <td>
+                                    הפעלת הסרטון אוטומתי
+                                </td>
+                                <td>
+                                    הפעלת את הסרטון בלולאה
+                                </td>
+                                <td>
+                                    אפשרות שליטה על הסרטון
+                                </td>
+                                <td>
+                                    הצג סרטונים קשורים בסוף הקטע
+                                </td>
+                            </tr>
 
+                            <tr>
+                                <td>
+                                    <label class="btn btn-primary col-xs-3 youtube_btn">
+                                        <input type="checkbox" id='auto' autocomplete="off">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="btn btn-primary col-xs-3 youtube_btn">
+                                        <input type="checkbox" id='loop' autocomplete="off">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="btn btn-primary col-xs-3 youtube_btn">
+                                        <input type="checkbox" id='controler' autocomplete="off">
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="btn btn-primary col-xs-3 youtube_btn">
+                                        <input type="checkbox" id='rel' autocomplete="off">
+                                    </label>
+                                </td>
+                            </tr>
+                            <input type="hidden" class="guide_videos_array_finel" name="guide_videos_array[]"/>
+                        </table>
+                    </div>
+                </div>
 
+            </div>
         </div>
-      </div>
-
 
     </div>
 </body>

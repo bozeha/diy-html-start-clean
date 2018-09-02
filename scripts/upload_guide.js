@@ -12,17 +12,18 @@ $(document).ready(function () {
   $('#user_number').val(upload_array['user_number']);
 
 
+
   $('#subject_name').change(function () {
     upload_array['subject_number'] = $('#subject_name option:selected').attr('subject-user-id');
     $('#subject_number').val(upload_array['subject_number']);
-    
+
   })
 
 
   $('#nick_name').change(function () {
     upload_array['user_number'] = $('#nick_name option:selected').attr('data-user-id');
     $('#user_number').val(upload_array['user_number']);
-    
+
   })
 
 
@@ -42,7 +43,7 @@ $(document).ready(function () {
     // add option to add new step between 
     $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
-    $('form .step_lable').last().html("שלב "+upload_array['step_number']);
+    $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'text_and_img'");
     //do the reomve block option 
     $('form .one_of_steps').last().val('');
@@ -62,9 +63,9 @@ $(document).ready(function () {
     // add option to add new step between 
     $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
-    $('form .step_lable').last().html("שלב "+upload_array['step_number']);
+    $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'textarea'");
-    // do the romove bloc option
+    // do the romove block option
 
     var temp_loop2 = temp_loop + 1;// add new id name for every textarea
     $('form textarea').last().attr('id', 'editor' + temp_loop2);
@@ -77,15 +78,21 @@ $(document).ready(function () {
     temp_loop++;
 
   })
+
   $('.button_youtube').click(function () {
+
+      var current_step_bumber = upload_array['step_number'];
     $('.add_guide_videos_array').last().clone().appendTo(".start_steps");
 
     // add step between 
     $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
-    $('form .step_lable').last().html("שלב "+upload_array['step_number']);
+    $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'youtube'");
-    // do the romove bloc option
+
+
+
+    // do the romove block option
 
     $('form .add_guide_videos_array').last().val('');
     upload_array['type_of_steps'][temp_loop] = "youtube";
@@ -94,31 +101,42 @@ $(document).ready(function () {
     //console.log(upload_array['step_number']);
     temp_loop++;
     disable_next(true);
+      upload_array['step_number']
+
 
   })
 })
 
-
+/// this function runs on clicking approve button on every upload video
 function youtube_options(current_this) {
 
-  $(current_this).parent().parent().find('input#auto').val()
+   var current_vid_option =  $(current_this).parent().parent().parent().parent().find("input[name='upload_vid']:checked").val()
+    if(current_vid_option =="up_youtube") {
+        // get youtube url
+        var str = $(current_this).parent().parent().parent().find('input.guide_videos_array').val();
+        str = str.replace(/.*=/, "");
+        // add the properties to youtube url
+        str = $(current_this).parent().parent().find('input#auto').is(':checked') ? str + "?autoplay=1" : str + "?autoplay=0";
+        str = $(current_this).parent().parent().find('input#loop').is(':checked') ? str + "&loop=1" : str + "&loop=0";
+        str = $(current_this).parent().parent().find('input#controler').is(':checked') ? str + "&controls=1" : str + "&controls=0";
+        str = $(current_this).parent().parent().find('input#rel').is(':checked') ? str + "&rel=1" : str + "&rel=0";
 
 
-  var str = $(current_this).parent().parent().parent().find('input.guide_videos_array').val();
-  //var str = $('form .add_guide_videos_array input.guide_videos_array').last().val();
-  str = str.replace(/.*=/, "");
-  //console.log(str);
-  str = $(current_this).parent().parent().find('input#auto').is(':checked') ? str + "?autoplay=1" : str + "?autoplay=0";
-  str = $(current_this).parent().parent().find('input#loop').is(':checked') ? str + "&loop=1" : str + "&loop=0";
-  str = $(current_this).parent().parent().find('input#controler').is(':checked') ? str + "&controls=1" : str + "&controls=0";
-  str = $(current_this).parent().parent().find('input#rel').is(':checked') ? str + "&rel=1" : str + "&rel=0";
-  //console.log(str);
-  //$('form .add_guide_videos_array input.guide_videos_array_finel').last().val(str);
-  $(current_this).parent().parent().parent().find('input.guide_videos_array_finel').val(str);
+    }
+    else if(current_vid_option =="up_video")
+    {
+        str = $(current_this).parent().find("input").val();
+        // the file path need to be with 3 backslash \\\ instead of one \  => for php  $string2json well not brake
+        str = str.replace(/.*\\/g, "");
+        console.log(str);
 
-  $(current_this).parent().find('input.guide_videos_array').attr('readonly', true);
-  $(current_this).parent().find('input.guide_videos_array').css('background-color', '#D3D3D3');
-  disable_next(false);
+    }
+// add the properties to the youtube url
+    $(current_this).parent().parent().parent().find('input.guide_videos_array_finel').val(str);
+
+    $(current_this).parent().find('input.guide_videos_array').attr('readonly', true);
+    $(current_this).parent().find('input.guide_videos_array').css('background-color', '#D3D3D3');
+    disable_next(false);
 }
 
 function disable_next(current_step) {
@@ -229,7 +247,7 @@ function step_between(current_between) {
     // add option to add new step between 
     $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
-    $('form .step_lable').last().html("שלב "+upload_array['step_number']);
+    $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'textarea'");
     // do the romove bloc option
 
