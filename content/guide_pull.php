@@ -1,6 +1,5 @@
 <?php
-include '/settings/php_help_functions.php';
-
+include 'settings/php_help_functions.php';
 
 if(isset($_GET['guide'])) {
     $current_guide = $_GET['guide'];
@@ -207,6 +206,7 @@ foreach($guide_array['type_of_steps_array'] as $val)
     }
     else if($guide_array['type_of_steps_array'][$array_of_loops['main']]=="youtube")
     {
+
         $current_guide_str =$guide_array['guide_videos_array'][$array_of_loops['youtube']];
         if(endsWith($current_guide_str , "avi")||endsWith($current_guide_str , "mp4")||endsWith($current_guide_str , "flv"))
         {
