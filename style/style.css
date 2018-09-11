@@ -156,3 +156,7 @@ div.an-add
 {
     max-width:600px;
 }
+.upload_vid_row
+{
+    display:none;
+}

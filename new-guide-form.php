@@ -85,7 +85,7 @@
 
 
     <div class="add_another_step">
-        <button class="btn btn-danger" onclick="">x</button>
+        <button class="btn btn-danger" type="button" onclick="">x</button>
         <div class="form-group">
             <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
             <input type="text" class="form-control one_of_steps" name="step[]">

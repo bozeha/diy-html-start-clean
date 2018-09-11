@@ -6,7 +6,9 @@ upload_array['type_of_steps'] = [];
 temp_loop = 0; /// the type_of_steps place
 
 $(document).ready(function () {
-  upload_array['subject_number'] = $('#subject_name option:selected').attr('subject-user-id');
+
+
+    upload_array['subject_number'] = $('#subject_name option:selected').attr('subject-user-id');
   $('#subject_number').val(upload_array['subject_number']);
   upload_array['user_number'] = $('#nick_name option:selected').attr('data-user-id');
   $('#user_number').val(upload_array['user_number']);
@@ -64,7 +66,9 @@ $(document).ready(function () {
     $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
     $('form .step_lable').last().html("שלב " + upload_array['step_number']);
+    // add the x red button able to remove this block
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'textarea'");
+
     // do the romove block option
 
     var temp_loop2 = temp_loop + 1;// add new id name for every textarea
@@ -89,8 +93,8 @@ $(document).ready(function () {
 
     $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'youtube'");
-
-
+    //// sending the video object for control what video block to show, upload vid or youtube vid
+    $('form .add_guide_videos_array').last().find("input[name=upload_vid]").attr('onclick', "displayYoutubeOrUpload($(this).parent())");
 
     // do the romove block option
 
@@ -105,6 +109,9 @@ $(document).ready(function () {
 
 
   })
+
+
+
 })
 
 /// this function runs on clicking approve button on every upload video
@@ -161,13 +168,40 @@ function disable_next(current_step) {
     $('#submit-button').removeClass("dis-button");
   }
 }
+
+/// display the selected type of video -> youtube or upload , and hide the other
+function displayYoutubeOrUpload(current_div)
+{
+    $rudio_selected = current_div.find("input[name='upload_vid']:checked").val();
+    if ($rudio_selected == 'up_video') {
+
+      $block_to_show = current_div.find(".upload_vid_row");
+      $block_to_show.css("display","block");
+      $block_to_hide = current_div.find(".upload_youtube_row");
+      $block_to_hide.css("display","none");
+    }
+    else
+    {
+        $block_to_show = current_div.find(".upload_youtube_row");
+        $block_to_show.css("display","block");
+        $block_to_hide = current_div.find(".upload_vid_row");
+        $block_to_hide.css("display","none");
+    }
+}
+
+
+
 function removeBlock(current_div, number_of_step_to_remove, type_of_block) {
 
   //if this div with image and text we need to remove the img from images array need to work only on edit guide not on new guid page
   var get_url = window.location.href;
   if (($(current_div).hasClass('add_another_step')) && (get_url.indexOf("new-guide-form") == -1)) {
-    guide_array['guide_images_array'].splice($(current_div).find('.edit_guide_img').attr('data-id-img-div'), 1);
-    $('#all_images').val(guide_array['guide_images_array']);
+  /*
+      if (typeof guide_array !== 'undefined' || guide_array !== null)
+      {
+          guide_array['guide_images_array'].splice($(current_div).find('.edit_guide_img').attr('data-id-img-div'), 1);
+      $('#all_images').val(guide_array['guide_images_array']);
+  }*/
   }
 
   // remove the option step between 
