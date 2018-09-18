@@ -129,7 +129,7 @@
                     </button>
                 </div>
 
-                <div class="btn-group row" data-toggle="buttons">
+                <div class="btn-group row" >
 
                     <table id='youtube_table'>
                         <tr>
