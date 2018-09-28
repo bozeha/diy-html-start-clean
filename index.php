@@ -18,6 +18,14 @@
     </div>
     <div id="section2">
       <div class="container">
+          <div class="row">
+              <div id="heading_1-0" class="comp heading heading--constrained" style="
+    margin: 0 auto;
+">
+                  <h1 class="heading__title">DIY עשה זאת בעצמך</h1>
+                  <h2 class="heading__subtitle">מדריכים בכל תחומי החיים, כיצד לעשות בעצמך ולחסוך הרבה כסף</h2>
+              </div>
+          </div>
         <div class="row">
           
           <?php 

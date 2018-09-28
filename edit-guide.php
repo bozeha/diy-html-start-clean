@@ -60,10 +60,10 @@ if ($result->num_rows > 0) {
         $guide_array['guide_text_array']=$string2json;
         
         $guide_array['guide_images_array'] = $row["guide_images_array"];
-        echo "<script>guide_array['guide_images_array']=JSON.parse('".$guide_array['guide_images_array']."')</script>";    
+        echo "<script>guide_array['guide_images_array']=JSON.parse('".$guide_array['guide_images_array']."')</script>";
         $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
         $guide_array['guide_images_array']=$string2json;
-        
+
         
         if (!is_null($row["guide_videos_array"]))
         {

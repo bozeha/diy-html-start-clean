@@ -93,7 +93,7 @@ for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
     setTimeout(function(){ $(".cke_button__source").trigger( "click" );
 }, 100);
 
-if(guide_array['guide_images_array'][0])
+if(guide_array['guide_images_array'] && guide_array['guide_images_array'][0])
 {
    
     jQuery.each(guide_array['guide_images_array'],function(i,val)

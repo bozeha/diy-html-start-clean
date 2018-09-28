@@ -18,7 +18,6 @@ if (isset($_POST['guide_id'])) {
     if (isset($_POST['all_images'])) {
         $upload_array['all_images'] = $_POST['all_images'][0];
         $upload_array['all_images_fix'] = explode(",", $upload_array['all_images']);
-        echo $_POST['all_images']."lklklklklklklklk";
     }
 
 }
@@ -79,7 +78,6 @@ if (isset($_POST['access_array'])) {
 }
 if (isset($_POST['type_of_steps'])) {
     $upload_array['type_of_steps'] = $_POST['type_of_steps'][0];
-    echo "only 0 new:" . $upload_array['type_of_steps'];
     // fix array
     $temp_array = explode(",", $upload_array['type_of_steps']);
     $upload_array['type_of_steps'] = $temp_array;
@@ -138,7 +136,7 @@ foreach ($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name) {
 
 
     // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    if ($imageFileType && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif") {
        /* if ($imageFileType == "mp4" || $imageFileType == "avi" || $imageFileType == "m4v" || $imageFileType == "flv") {
             echo "this is video file ";
