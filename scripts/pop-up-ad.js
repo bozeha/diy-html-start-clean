@@ -17,7 +17,8 @@ switchPopUp(false);
     switchPopUp(true)
 setTimeout(function(){
 
-  $('#close_pop').css('display','block')
+  $('#close_pop').css('display','block');
+  $("#pop_cont").css('background-color','rgba(0,0,0,0.5)');
 }, 2000);
 
 

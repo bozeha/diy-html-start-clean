@@ -99,7 +99,12 @@ label {
     max-width: 200px !important;
     cursor: pointer;
 }
-
+.guide-box .step-img-div img
+{
+    float:left;
+    padding-right:10px;
+    padding-bottom:10px;
+}
 .step_number {
     background-color: #225cd8;
     width: 54px;
@@ -149,6 +154,10 @@ label {
     background-position: 50%;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.9);
+    background-size:contain;
+}
+div#dashboard_page #resize_div {
+    background-position: top;
     background-size:contain;
 }
 
@@ -264,9 +273,10 @@ background-color:#122b40 !important;
    .guide-box div.step-img-div img
       {
           max-width:100px !important;
+            float:left;
 
       }
-    div.step-text-div span
+    span.step-text-div
     {
 
         font-size:10px;

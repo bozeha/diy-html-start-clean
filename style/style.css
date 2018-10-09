@@ -1,18 +1,21 @@
 
 @font-face {
     font-family: openlight;
-    src: url('style/openlight.ttf');
+    src: url('openlight.ttf');
 }
 
 @font-face {
     font-family: open;
-    src: url('style/open.ttf');
+    src: url('open.ttf');
 }
 
 .add_another_step {
     padding-bottom: 20px;
 }
-
+input.one_of_steps,input#guide_title,input#guide_keywords,input#guide_sub_title
+{
+    direction:rtl;
+}
 .add_guide_videos_array, .add_another_textarea, .add_another_step {
     border: 1px solid blue;
     padding: 30px;
@@ -121,6 +124,7 @@ div.an-add
 #pop_cont
 {
     height:100%;
+
 }
 @media only screen and (min-device-width : 768px)
 {

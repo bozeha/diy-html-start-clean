@@ -185,8 +185,8 @@ foreach($guide_array['type_of_steps_array'] as $val)
         
         if(isset($guide_array['guide_images_array'][$array_of_loops['text_img']+1]))
         {
-            echo "<div class='col-md-6 col-6 step-img-div'><img  onclick='fullSizeImage(this)' src='".$guide_array['guide_images_array'][$array_of_loops['text_img']+1]."'/></div>";
-            echo "<div class='col-md-6 col-6 step-text-div'><span>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
+            echo "<div class='col-md-12 col-12 step-img-div'><img  onclick='fullSizeImage(this)' src='".$guide_array['guide_images_array'][$array_of_loops['text_img']+1]."'/><span class='step-text-div'>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
+            //echo "<div class='col-md-6 col-6 step-text-div'></div>";
         }
         else echo "<div class='col-md-12'><span>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
         
