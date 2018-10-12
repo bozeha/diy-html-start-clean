@@ -223,7 +223,7 @@ include 'settings/pull_subjects.php';
 
     <div style='display:none'>
 
-<!-- this is buttons for between steps -->
+<!-- this is buttons for between steps  -> 3 buttons that appears when we click on setp between-->
           <div class='col-xs-12 pull-right block-of-between-buttons'>
               <button type="button" onclick='step_between(this)' class="btn-lg button_youtube_between">צור שלב של סרטון יוטיוב</button>
               <button type="button" onclick='step_between(this)' class="btn-lg button_textarea_between">קטע טקסט</button>

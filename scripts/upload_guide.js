@@ -40,10 +40,11 @@ $(document).ready(function () {
 
   //upload_array['type_of_steps'][0] = "text_and_img";// the first tet and image are already in the page 
   $('.button_text_and_img').click(function () {
+    // add option to add new step between
+    $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+
     $('.add_another_step').last().clone().appendTo(".start_steps");
 
-    // add option to add new step between 
-    $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
     $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'text_and_img'");
@@ -60,10 +61,11 @@ $(document).ready(function () {
 
 
   $('.button_textarea').click(function () {
+    // add option to add new step between
+    $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+
     $('.add_another_textarea').last().clone().appendTo(".start_steps");
 
-    // add option to add new step between 
-    $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
     $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     // add the x red button able to remove this block
@@ -86,10 +88,11 @@ $(document).ready(function () {
   $('.button_youtube').click(function () {
 
       var current_step_bumber = upload_array['step_number'];
+    // add step between
+    $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+
     $('.add_guide_videos_array').last().clone().appendTo(".start_steps");
 
-    // add step between 
-    $(".start_steps").append("<div data-between-number='" + upload_array['step_number'] + "' class='add-new-step-between' data-current-place='" + upload_array['step_number'] + "'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
 
     $('form .step_lable').last().html("שלב " + upload_array['step_number']);
     $('form .btn-danger').last().attr('onclick', "removeBlock($(this).parent()," + (upload_array['step_number'] - 1) + "),'youtube'");
@@ -261,7 +264,10 @@ function step_between(current_between) {
 
     // update the type of step
     upload_array['type_of_steps'].splice(temp_loop - 1, 1);
-    upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number'), 0, 'text_and_img');
+    ////**slice 3 args*** -> slice(the index to add the text,number of element after index to delete, the text )
+      var prev_element =$(current_between).parent().parent().prevAll().length
+    upload_array['type_of_steps'].splice(prev_element, 0, 'text_and_img');
+    //upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number')-1, 0, 'text_and_img');
     $('#type_of_steps').val(upload_array['type_of_steps']);
 
     $(current_between).parent().find($('.button_youtube_between')).remove();
@@ -316,13 +322,14 @@ function step_between(current_between) {
     upload_array['type_of_steps'].splice(temp_loop - 1, 1);
 
     var number_of_prev_elements = $(current_between).parent().parent().prevAll().length;
+    //  upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number')-1, 0, 'textarea');
     upload_array['type_of_steps'].splice(number_of_prev_elements, 0, 'textarea');
     $('#type_of_steps').val(upload_array['type_of_steps']);
 
     //remove 3 big buttons
-    $(current_between).parent().find($('.button_textarea_between')).remove();
     $(current_between).parent().find($('.button_text_and_img_between')).remove();
     $(current_between).parent().find($('.button_youtube_between')).remove();
+    $(current_between).parent().find($('.button_textarea_between')).remove();
 
     /// becuse the input of image move to end to form we neet to remove button
     $('form .add-new-step-between button').last().remove()
@@ -348,6 +355,7 @@ function step_between(current_between) {
     upload_array['type_of_steps'].splice(temp_loop - 1, 1);
 
     var number_of_prev_elements = $(current_between).parent().parent().prevAll().length;
+     // upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number')-1, 0, 'youtube');
     upload_array['type_of_steps'].splice(number_of_prev_elements, 0, 'youtube');
     $('#type_of_steps').val(upload_array['type_of_steps']);
 
