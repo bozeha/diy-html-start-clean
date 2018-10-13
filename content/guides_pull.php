@@ -35,9 +35,9 @@ mysqli_query($connection, "set names 'utf8'");
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
-
+//// you can get the value sort as ascending  or descending ->>ASC  DESC
 $current_subject = mysqli_real_escape_string($connection, $current_subject);
-if ($current_subject=='all'){$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides";}
+if ($current_subject=='all'){$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides ORDER BY timestamp DESC ";}
 else {$sql = "SELECT id, active, subject, user, guide_key, guide_title, guide_subtitle, guide_images_array FROM guides WHERE subject = ".$current_subject;}
 $result = $connection->query($sql);
 $loop = 0;
