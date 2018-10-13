@@ -15,7 +15,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-$sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle, keywords,redirect,redirect_url, guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array FROM guides WHERE id = ".$current_guide;
+$sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle, keywords,redirect,redirect_url, guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array, notification FROM guides WHERE id = ".$current_guide;
 $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
@@ -44,27 +44,27 @@ if ($result->num_rows > 0) {
         echo "<script>guide_array['guide_redirect']='".$guide_array['guide_redirect']."'</script>";
         $guide_array['guide_redirect_url'] = $row["redirect_url"];
         echo "<script>guide_array['guide_redirect_url']='".$guide_array['guide_redirect_url']."'</script>";
-        
+
         $guide_array['guide_accessories_array'] = $row["guide_accessories_array"];
         $guide_array['guide_accessories_array'] = str_replace(",","\",\"",$guide_array['guide_accessories_array']);
          echo "<script>guide_array['guide_accessories_array2']=JSON.parse('".$guide_array['guide_accessories_array']."')</script>";
          echo "<script>guide_array['guide_accessories_array']=guide_array['guide_accessories_array2'][0]</script>";
         $string2json =  json_decode($guide_array['guide_accessories_array'],TRUE);
         $guide_array['guide_accessories_array']=$string2json;
-         
 
-        
+
+
         $guide_array['guide_text_array'] = $row["guide_text_array"];
         echo "<script>guide_array['guide_text_array']=JSON.parse('".$guide_array['guide_text_array']."')</script>";
         $string2json =  json_decode($guide_array['guide_text_array'],TRUE);
         $guide_array['guide_text_array']=$string2json;
-        
+
         $guide_array['guide_images_array'] = $row["guide_images_array"];
         echo "<script>guide_array['guide_images_array']=JSON.parse('".$guide_array['guide_images_array']."')</script>";
         $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
         $guide_array['guide_images_array']=$string2json;
 
-        
+
         if (!is_null($row["guide_videos_array"]))
         {
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
@@ -76,21 +76,32 @@ if ($result->num_rows > 0) {
           $guide_array['guide_videos_array']='';
           echo "<script>guide_array['guide_videos_array']=''</script>";
           }
-        
-        
+
+
         $guide_array['guide_textarea_array'] = $row["guide_textarea_array"];
         $string2json =  base64_decode($guide_array['guide_textarea_array']);
         echo "<script>guide_array['guide_textarea_array']=".$string2json."</script>";
         $string2json2 = json_decode($string2json,TRUE);
         $guide_array['guide_textarea_array']=$string2json2;
        //echo "<script>console.log('".$string2json."0000')</script>";
-        
-        
+
+
         $guide_array['type_of_steps_array'] = $row["type_of_steps_array"];
         echo "<script>guide_array['type_of_steps_array']=".$guide_array['type_of_steps_array']."</script>";
         $string2json =  json_decode($guide_array['type_of_steps_array'],TRUE);
         $guide_array['type_of_steps_array']=$string2json;
-        
+
+
+        if($row["notification"])
+        {
+            $temp_notification  =$row["notification"];
+            echo "<script>guide_array['notification']='".$temp_notification."'</script>";
+        }
+        else
+        {
+            echo "<script>guide_array['notification']='';</script>";
+        }
+
 
     }
 } else {
@@ -175,7 +186,28 @@ if(isset($_GET['mess'])) {
           <label for="exampleInputEmail1">מילות מפתח - keywords</label>
           <input type="text" class="form-control" name="guide_keywords" id="guide_keywords" required>
         </div>
-        <div class="form-group">
+
+
+          <div id="notification">
+              <span>הודעה הוא הערה בתחילת המדריך</span>
+              <div class="form-group">
+                  <label for="exampleInputEmail1">כותרת ההודעה</label>
+                  <input type="text" class="form-control" name="notification_title" id="notification_title" >
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputEmail1">תוכן ההודעה</label>
+                  <input type="text" class="form-control" name="notification_message" id="notification_text" >
+              </div>
+              <div class="form-group">
+                  <input type="radio" name="notification_level" value="1" id="notification_level1" >הודעה<br>
+                  <input type="radio" name="notification_level" value="2" id="notification_level2">הערה<br>
+                  <input type="radio" name="notification_level" value="3" id="notification_level3">אזהרה<br>
+              </div>
+          </div>
+
+
+
+          <div class="form-group">
           <div class='col-xs-8'>
           <label for="exampleInputEmail1">כתובת</label>
           <input type="text" class="form-control" name="guide_redirect_url" id="guide_redirect_url">

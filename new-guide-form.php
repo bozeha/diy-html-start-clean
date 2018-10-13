@@ -57,10 +57,25 @@
         include 'settings/pull_subjects.php';
         ?>
 
+        <div id="notification">
+    <span>הודעה הוא הערה בתחילת המדריך</span>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">כותרת ההודעה</label>
+                    <input type="text" class="form-control" name="notification_title" id="notification_title" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">תוכן ההודעה</label>
+                    <input type="text" class="form-control" name="notification_message" id="notification_text" >
+                </div>
+                <div class="form-group">
+                    <input type="radio" name="notification_level" value="1" id="notification_level1" checked="checked" >הודעה<br>
+                    <input type="radio" name="notification_level" value="2" id="notification_level2">הערה<br>
+                    <input type="radio" name="notification_level" value="3" id="notification_level3">אזהרה<br>
+                </div>
+        </div>
+
 
         <span class='start_steps'>
-
-
 </span>
         <div class="row youtube_buttons">
             <!--<div id="gray-div">

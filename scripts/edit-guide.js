@@ -34,6 +34,30 @@ $('#guide_title_en').val(guide_array['guide_title_en']);
 $('#guide_title').val(guide_array['guide_title']);
 $('#guide_sub_title').val(guide_array['guide_subtitle']);
 $('#guide_keywords').val(guide_array['guide_keywords']);
+
+
+ var notification_array = guide_array['notification'].split(",");
+    guide_array['notification'] =notification_array;
+
+        $('#notification_title').val(guide_array['notification'][0]);
+        $('#notification_text').val(guide_array['notification'][1]);
+        switch (guide_array['notification'][2]) {
+            case "1":
+                $('#notification_level1').prop("checked", true);
+                break;
+
+            case "2":
+                $('#notification_level2').prop("checked", true);
+                break;
+
+            case "3":
+                $('#notification_level3').prop("checked", true);
+
+                break;
+        }
+
+
+
 if(guide_array['guide_redirect']==1)
 {
     $('#guide_redirect').attr("checked", true);
@@ -144,8 +168,6 @@ $('.fileToUpload').css('display','none');
 $('#load_div').css('display','none');
 replaceImage(-1);
 }, 3000);
-
-
 
 
 

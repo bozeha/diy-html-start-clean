@@ -34,10 +34,10 @@ if ($connection->connect_error) {
 }
 
 $current_guide = mysqli_real_escape_string($connection, $current_guide);
-$sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle,keywords,redirect,redirect_url,guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array FROM guides WHERE id = ".$current_guide;
+$sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_subtitle,keywords,redirect,redirect_url,guide_accessories_array,guide_text_array ,guide_images_array, guide_videos_array, type_of_steps_array, guide_textarea_array, notification FROM guides WHERE id = ".$current_guide;
 $result = $connection->query($sql);
 if ($result && $result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $guide_array['id'] = $row["id"];
         $guide_array['subject'] = $row["subject"];
         $guide_array['user'] = $row["user"];
@@ -48,121 +48,113 @@ if ($result && $result->num_rows > 0) {
         $guide_array['guide_keywords'] = $row["keywords"];
         $guide_array['guide_redirect'] = $row["redirect"];
         $guide_array['guide_redirect_url'] = $row["redirect_url"];
-        
-        $guide_array['guide_accessories_array'] = $row["guide_accessories_array"];
-        $guide_array['guide_accessories_array'] = str_replace(",","\",\"",$guide_array['guide_accessories_array']);
-        $string2json =  json_decode($guide_array['guide_accessories_array'],TRUE);
-        $guide_array['guide_accessories_array']=$string2json;
-        
-        $guide_array['guide_text_array'] = $row["guide_text_array"];
-        $string2json =  json_decode($guide_array['guide_text_array'],TRUE);
-        $guide_array['guide_text_array']=$string2json;
-        
-        $guide_array['guide_images_array'] = $row["guide_images_array"];
-        $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
-        $guide_array['guide_images_array']=$string2json;
 
+        $guide_array['guide_accessories_array'] = $row["guide_accessories_array"];
+        $guide_array['guide_accessories_array'] = str_replace(",", "\",\"", $guide_array['guide_accessories_array']);
+        $string2json = json_decode($guide_array['guide_accessories_array'], TRUE);
+        $guide_array['guide_accessories_array'] = $string2json;
+
+        $guide_array['guide_text_array'] = $row["guide_text_array"];
+        $string2json = json_decode($guide_array['guide_text_array'], TRUE);
+        $guide_array['guide_text_array'] = $string2json;
+
+        $guide_array['guide_images_array'] = $row["guide_images_array"];
+        $string2json = json_decode($guide_array['guide_images_array'], TRUE);
+        $guide_array['guide_images_array'] = $string2json;
 
 
         //$x =json_decode('["C:\\\fakepath\\\111111.mp4","x578xTJ4T4g?autoplay=0&loop=0&controls=0&rel=0"]');
-       // echo ($row["guide_videos_array"]);
+        // echo ($row["guide_videos_array"]);
         //$x = $row["guide_videos_array"];
         //print_r($x);
 
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
-        $string2json =  json_decode($guide_array['guide_videos_array']);
-        $guide_array['guide_videos_array']=$string2json;
+        $string2json = json_decode($guide_array['guide_videos_array']);
+        $guide_array['guide_videos_array'] = $string2json;
 
         //print_r($guide_array['guide_videos_array']);
         //print_r($string2json."yyyyyyyyyyyyyyy");
 
 
-
-
-
-
         $guide_array['guide_textarea_array'] = $row["guide_textarea_array"];
-        $string2json =  base64_decode($guide_array['guide_textarea_array']);
-        $string2json2 = json_decode($string2json,TRUE);
-        $guide_array['guide_textarea_array']=$string2json2;
-       
-        
-        
+        $string2json = base64_decode($guide_array['guide_textarea_array']);
+        $string2json2 = json_decode($string2json, TRUE);
+        $guide_array['guide_textarea_array'] = $string2json2;
+
+
         $guide_array['type_of_steps_array'] = $row["type_of_steps_array"];
-        $string2json =  json_decode($guide_array['type_of_steps_array'],TRUE);
-        $guide_array['type_of_steps_array']=$string2json;
-        
+        $string2json = json_decode($guide_array['type_of_steps_array'], TRUE);
+        $guide_array['type_of_steps_array'] = $string2json;
+
+
+        $guide_array['notification'] = explode(",",$row["notification"]);
+       // $string2json_notification = json_decode($guide_array['notification'], TRUE);
+        //$guide_array['notification'] = $string2json_notification;
+
+
     }
 
- if($guide_array['guide_redirect'])
-    {
-        if($guide_array['guide_redirect_url'])
-            {
-                echo "<script>var temp_link = '".$guide_array['guide_redirect_url']."'</script>";
-                echo "<script>  window.location.assign(temp_link);</script>";
-            }
-    } 
+    if ($guide_array['guide_redirect']) {
+        if ($guide_array['guide_redirect_url']) {
+            echo "<script>var temp_link = '" . $guide_array['guide_redirect_url'] . "'</script>";
+            echo "<script>  window.location.assign(temp_link);</script>";
+        }
+    }
 
-echo "<script>var guide_keywords= '".$guide_array['guide_keywords']."'</script>";//use the keywords in the meta.js functions
+    echo "<script>var guide_keywords= '" . $guide_array['guide_keywords'] . "'</script>";//use the keywords in the meta.js functions
 
 
+//redirect
 
-//redirect 
-   
 ///
 
 
-
-
-// start pull accessores 
+// start pull accessores
 //$access_loop =0;
-$sql = "SELECT id,access_name ,access_disc ,access_img FROM  accessories ";
-$result = $connection->query($sql);
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        //echo $row["id"]."--";
-        $guide_array_access['id'][$row["id"]] = $row["id"];
-        $guide_array_access['access_name'][$row["id"]] = $row["access_name"];
-        $guide_array_access['access_disc'][$row["id"]] = $row["access_disc"];
-        $guide_array_access['access_img'][$row["id"]] = $row["access_img"];
-        //$access_loop++;
+    $sql = "SELECT id,access_name ,access_disc ,access_img FROM  accessories ";
+    $result = $connection->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            //echo $row["id"]."--";
+            $guide_array_access['id'][$row["id"]] = $row["id"];
+            $guide_array_access['access_name'][$row["id"]] = $row["access_name"];
+            $guide_array_access['access_disc'][$row["id"]] = $row["access_disc"];
+            $guide_array_access['access_img'][$row["id"]] = $row["access_img"];
+            //$access_loop++;
+        }
     }
-}
 
 
+    echo "<div class='row' ><div class='col-12 top_main_guide'>";
+    echo "<div class='col-12 top_main_guide_img' style='background-image:url(" . $guide_array['guide_images_array'][0] . ")'>";
+    echo "</div><div class='col-12'>";
+    echo "<h1>" . $guide_array['guide_title'] . "</h1>";
+    echo "</div><div class='col-12'>";
+    echo "<h2>" . $guide_array['guide_subtitle'] . "</h2>";
+    echo "</div>";
+    echo "</div></div>";
 
-echo "<div class='row' ><div class='col-12 top_main_guide'>";
-echo "<div class='col-12 top_main_guide_img' style='background-image:url(".$guide_array['guide_images_array'][0].")'>";
-echo "</div><div class='col-12'>";
-echo "<h1>".$guide_array['guide_title']."</h1>";
-echo "</div><div class='col-12'>";
-echo "<h2>".$guide_array['guide_subtitle']."</h2>";
-echo "</div>";
-echo "</div></div>";
 
-
-echo "<div class'row pull_access_div' style='display:inline-block;width:100%' >";
-
+    echo "<div class'row pull_access_div' style='display:inline-block;width:100%' >";
 
 
 //////////////////
 
 //$access_loop--;
-if($guide_array['guide_accessories_array'][0][0]!="")
-{
-echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
-    echo "<div class='access_div row'>";
-    foreach($guide_array['guide_accessories_array'][0] as $key=>$value)
-    {
+    if ($guide_array['guide_accessories_array'][0][0] != "") {
+        echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
+        echo "<div class='access_div row'>";
+        foreach ($guide_array['guide_accessories_array'][0] as $key => $value) {
 
             $current_access = $guide_array['guide_accessories_array'][0][$key];
-        echo "<div class='pull-right col-6 col-md-2' ><span  class='pull-right col-12' data-access-id='".$guide_array_access['id'][$current_access]."'>";
-        echo $guide_array_access['access_name'][$current_access]."</span>";
-        echo "<img data-toggle='tooltip' data-placement='bottom' title='".$guide_array_access['access_disc'][$current_access]."' width='100px' height='100px' src='".$guide_array_access['access_img'][$current_access]."'/></div>";
-        
+            echo "<div class='pull-right col-6 col-md-2' ><span  class='pull-right col-12' data-access-id='" . $guide_array_access['id'][$current_access] . "'>";
+            echo $guide_array_access['access_name'][$current_access] . "</span>";
+            echo "<img data-toggle='tooltip' data-placement='bottom' title='" . $guide_array_access['access_disc'][$current_access] . "' width='100px' height='100px' src='" . $guide_array_access['access_img'][$current_access] . "'/></div>";
+
+        }
+        echo "</div>";
     }
-    echo "</div>";
-}
+
 
 
 /////////////////
@@ -170,6 +162,11 @@ echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
 echo "</div>";
 
 
+    if ($guide_array['notification'] && $guide_array['notification'][0])
+    {
+     echo "<div class='notifications level".$guide_array['notification'][2]."'><img src='images/notifications/".$guide_array['notification'][2].".png'/><h3>".$guide_array['notification'][0]."</h3><span>".$guide_array['notification'][1]."</span></div>";
+
+    }
 
 $array_of_loops['main']= 0;
 $array_of_loops['text_img']= 0;
