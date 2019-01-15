@@ -54,11 +54,11 @@ if (isset($_POST['guide_redirect_url'])) {
 
 $upload_array['notification']['title'] = '';
 if (isset($_POST['notification_title'])) {
-    $upload_array['notification']['title'] = $_POST['notification_title'];
+    $upload_array['notification']['title'] =replaceToascii($_POST['notification_title']);
 }
 $upload_array['notification']['message'] = '';
 if (isset($_POST['notification_message'])) {
-    $upload_array['notification']['message'] = $_POST['notification_message'];
+    $upload_array['notification']['message'] = replaceToascii($_POST['notification_message']);
 }
 $upload_array['notification']['level'] ='';
 if (isset($_POST['notification_level'])) {

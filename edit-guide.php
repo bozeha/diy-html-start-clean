@@ -60,6 +60,7 @@ if ($result->num_rows > 0) {
         $guide_array['guide_text_array']=$string2json;
 
         $guide_array['guide_images_array'] = $row["guide_images_array"];
+        logPhp($guide_array['guide_images_array']);
         echo "<script>guide_array['guide_images_array']=JSON.parse('".$guide_array['guide_images_array']."')</script>";
         $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
         $guide_array['guide_images_array']=$string2json;
@@ -67,7 +68,9 @@ if ($result->num_rows > 0) {
 
         if (!is_null($row["guide_videos_array"]))
         {
+
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
+        logPhp($guide_array['guide_videos_array']);
         echo "<script>guide_array['guide_videos_array']=JSON.parse('".$guide_array['guide_videos_array']."')</script>";
         $string2json =  json_decode($guide_array['guide_videos_array'],TRUE);
         $guide_array['guide_videos_array']=$string2json;

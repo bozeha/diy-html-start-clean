@@ -161,8 +161,7 @@ if ($result && $result->num_rows > 0) {
 /*include '/content/pull_access.php'; */
 echo "</div>";
 
-
-    if ($guide_array['notification'] && $guide_array['notification'][0])
+    if ($guide_array['notification'] && $guide_array['notification'][0] && (strpos($guide_array['notification'][0], '"title":""') == false))
     {
      echo "<div class='notifications level".$guide_array['notification'][2]."'><img src='images/notifications/".$guide_array['notification'][2].".png'/><h3>".$guide_array['notification'][0]."</h3><span>".$guide_array['notification'][1]."</span></div>";
 
