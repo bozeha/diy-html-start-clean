@@ -5,8 +5,7 @@ if(session_status() == PHP_SESSION_NONE){
     if($_SESSION["id"]==null){
         }
 }
-if(!(isset($_SESSION["id"]))||($_SESSION["id"]=='')||($_SESSION["id"]==null))
-{
+if(!(isset($_SESSION["id"]))||($_SESSION["id"]=='')||($_SESSION["id"]==null)) {
     //ob_start();
     error_reporting(E_ALL);
 ini_set('display_errors','On');
