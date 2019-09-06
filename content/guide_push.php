@@ -54,11 +54,11 @@ if (isset($_POST['guide_redirect_url'])) {
 
 $upload_array['notification']['title'] = '';
 if (isset($_POST['notification_title'])) {
-    $upload_array['notification']['title'] =replaceToascii($_POST['notification_title']);
+    $upload_array['notification']['title'] =$_POST['notification_title'];
 }
 $upload_array['notification']['message'] = '';
 if (isset($_POST['notification_message'])) {
-    $upload_array['notification']['message'] = replaceToascii($_POST['notification_message']);
+    $upload_array['notification']['message'] = $_POST['notification_message'];
 }
 $upload_array['notification']['level'] ='';
 if (isset($_POST['notification_level'])) {
@@ -296,9 +296,9 @@ if (!isset($upload_array['guide_id'])) {
     $date_for_timestamp = new DateTime();
     //echo $date_for_timestamp->getTimestamp();
     $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, keywords,redirect,redirect_url, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array,guide_textarea_array, timestamp,notification)
-VALUES ('" . $upload_array['subject'] . "','" . $upload_array['user'] . "', '" . $upload_array['guide_key'] . "','" . $upload_array['guide_title'] . "','" . $upload_array['guide_title_en'] . "','" . $upload_array['guide_keywords'] . "','" . $upload_array['guide_redirect'] . "','" . $upload_array['guide_redirect_url'] . "','" . $upload_array['guide_sub_title'] . "','" . json_encode($upload_array['access_array']) . "','" . json_encode($upload_array['steps'], JSON_UNESCAPED_UNICODE) . "','" . json_encode($upload_array['files']) . "','" . json_encode($upload_array['guide_videos_array']) . "','" . json_encode($upload_array['type_of_steps']) . "','" . base64_encode(json_encode($upload_array['guide_textarea_array'])) . "','" .$date_for_timestamp->getTimestamp(). "','" .json_encode($upload_array['notification']). "')";
+VALUES ('" . $upload_array['subject'] . "','" . $upload_array['user'] . "', '" . $upload_array['guide_key'] . "','" . $upload_array['guide_title'] . "','" . $upload_array['guide_title_en'] . "','" . $upload_array['guide_keywords'] . "','" . $upload_array['guide_redirect'] . "','" . $upload_array['guide_redirect_url'] . "','" . $upload_array['guide_sub_title'] . "','" . json_encode($upload_array['access_array']) . "','" . json_encode($upload_array['steps'], JSON_UNESCAPED_UNICODE) . "','" . json_encode($upload_array['files']) . "','" . json_encode($upload_array['guide_videos_array']) . "','" . json_encode($upload_array['type_of_steps']) . "','" . base64_encode(json_encode($upload_array['guide_textarea_array'])) . "','" .$date_for_timestamp->getTimestamp(). "','" .implode(",", $upload_array['notification']). "')";
 } else {
-    $sql = "UPDATE guides SET subject ='" . $upload_array['subject'] . "', user = '" . $upload_array['user'] . "', guide_key='" . $upload_array['guide_key'] . "', guide_title ='" . $upload_array['guide_title'] . "', guide_title_en='" . $upload_array['guide_title_en'] . "' ,keywords ='" . $upload_array['guide_keywords'] . "',redirect ='" . $upload_array['guide_redirect'] . "',redirect_url ='" . $upload_array['guide_redirect_url'] . "',guide_subtitle='" . $upload_array['guide_sub_title'] . "' , guide_accessories_array ='" . json_encode($upload_array['access_array']) . "', guide_text_array ='" . json_encode($upload_array['steps'], JSON_UNESCAPED_UNICODE) . "',guide_images_array ='" . json_encode($upload_array['all_images_fix']) . "', type_of_steps_array ='" . json_encode($upload_array['type_of_steps']) . "',guide_textarea_array ='" . base64_encode(json_encode($upload_array['guide_textarea_array'])) . "',guide_videos_array ='" . json_encode($upload_array['guide_videos_array']) . "', notification = '" . $notification_to_string. "'  WHERE id = " . $upload_array['guide_id'] . "";
+    $sql = "UPDATE guides SET subject ='" . $upload_array['subject'] . "', user = '" . $upload_array['user'] . "', guide_key='" . $upload_array['guide_key'] . "', guide_title ='" . $upload_array['guide_title'] . "', guide_title_en='" . $upload_array['guide_title_en'] . "' ,keywords ='" . $upload_array['guide_keywords'] . "',redirect ='" . $upload_array['guide_redirect'] . "',redirect_url ='" . $upload_array['guide_redirect_url'] . "',guide_subtitle='" . $upload_array['guide_sub_title'] . "' , guide_accessories_array ='" . json_encode($upload_array['access_array']) . "', guide_text_array ='" . json_encode($upload_array['steps'], JSON_UNESCAPED_UNICODE) . "',guide_images_array ='" . json_encode($upload_array['all_images_fix']) . "', type_of_steps_array ='" . json_encode($upload_array['type_of_steps']) . "',guide_textarea_array ='" . base64_encode(json_encode($upload_array['guide_textarea_array'])) . "',guide_videos_array ='" . json_encode($upload_array['guide_videos_array']) . "', notification = '" . $notification_to_string. "'  WHERE id = '" . $upload_array['guide_id'] . "'";
 }
 
 

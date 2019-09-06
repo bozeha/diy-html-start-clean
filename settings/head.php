@@ -1,3 +1,4 @@
+
 <!-- Latest compiled and minified CSS -->
 
 <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
@@ -12,7 +13,7 @@
 <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
- 
+
 <!-- <script src="assets/js/bootstrap.min.js"></script> -->
  <link href="style/style.css" rel="stylesheet">
  <link href="style/new-styles.css" rel="stylesheet">
@@ -21,5 +22,6 @@
  <script src='scripts/meta.js'></script>
  <link rel="icon" type="image/png" href="images/web/favicon.ico">
  <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
-
-
+<?php
+include_once "include-sources/refresh-cache.php";
+?>
