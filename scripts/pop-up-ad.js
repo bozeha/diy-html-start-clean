@@ -1,12 +1,14 @@
 $("document").ready(function () {
 
-
+    var second_pop_up = (typeof global_settings !== 'undefined')?global_settings.second_pop_up:false;
     setTimeout(function () {
         runMyPopup();
     }, 5000);
-    setTimeout(function () {
-        $('#pop_up_ad').css('display') ==  "none"?runMyPopup():'';
-    }, 90000)
+    if(second_pop_up) {
+        setTimeout(function () {
+            $('#pop_up_ad').css('display') == "none" ? runMyPopup() : '';
+        }, 90000)
+    }
 })
 
 

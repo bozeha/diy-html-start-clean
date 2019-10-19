@@ -57,6 +57,10 @@ for($loop2=0;$loop2!=$guides_array['loop'];$loop2++) {
 <script src='scripts/meta.js'></script>
   <script>
   addMetaDescreption();
+  if(title === undefined){
+      var title="";
+      console.log("Alert !!! there is no meta keyword ");
+  }
   $('h1').text(title);
   </script>
   

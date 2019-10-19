@@ -15,7 +15,7 @@
   <div class="container display-guide">
 
         <?php include 'content/guide_pull.php'; ?>
-      
+        <?php include_once 'include-sources/include_facebook_like.php';?>
     </div>
     <?php include 'content/footer.php'; ?>
 </body>

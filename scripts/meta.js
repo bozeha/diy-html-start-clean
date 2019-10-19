@@ -3,6 +3,10 @@
 function addMetaDescreption()
 {
 var disc_string = $('h2').text();
+if(guide_keywords === undefined){
+    var guide_keywords="";
+    console.log("Alert !!! there is no meta keyword ");
+}
 disc_string = replaceToascii(disc_string) ;
     $('head').append("<meta name='description' content='"+disc_string+"'>");
      $('head').append("<meta name='keywords' content='"+guide_keywords+"'>");
