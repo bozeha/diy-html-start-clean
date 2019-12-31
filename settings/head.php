@@ -1,6 +1,6 @@
 
 <!-- Latest compiled and minified CSS -->
-<script src="/settings/global_settings.js"></script>
+<script src="settings/global_settings.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 <script src="assets/js/jquery.min.js"></script>

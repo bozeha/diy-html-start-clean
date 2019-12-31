@@ -1,10 +1,18 @@
 $("document").ready(function () {
 
     var second_pop_up = (typeof global_settings !== 'undefined')?global_settings.second_pop_up:false;
-    setTimeout(function () {
-        runMyPopup();
-    }, 5000);
-    if(second_pop_up) {
+    var first_pop_up = (typeof global_settings !== 'undefined')?global_settings.first_pop_up:false;
+    if (typeof global_settings !== 'undefined' && global_settings.device_type == "mobile") {
+        global_settings.block_all_popups = true;
+    }
+    var block_all_popups = (typeof global_settings !== 'undefined')?global_settings.block_all_popups:false;
+
+    if (first_pop_up && !block_all_popups) {
+        setTimeout(function () {
+            runMyPopup();
+        }, 5000);
+    }
+    if(second_pop_up && !block_all_popups) {
         setTimeout(function () {
             $('#pop_up_ad').css('display') == "none" ? runMyPopup() : '';
         }, 90000)

@@ -10,6 +10,7 @@ $(document).ready(function () {
     // this to show messages on hover the images tooltip of bootstrap 
     /* $('[data-toggle="tooltip"]').tooltip();   */ 
  //start_count_time_login();
+    updateDeviceInfo();
 })
 function fullSizeImage(current_img) {
     temp_img['src'] = $(current_img).attr('src');
@@ -30,4 +31,11 @@ function start_count_time_login()
 {
     setTimeout(function(){ $('#myModal2').modal() }, 3000);
 
+}
+function updateDeviceInfo () {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        global_settings.device_type = "mobile";
+    } else {
+        global_settings.device_type = "pc";
+    }
 }
